@@ -1,7 +1,3 @@
-export interface Poder {
-  id: number;
-  name: string;
-  totalValueSpent: number;
-  percentageOfTotal: number;
-  level: number;
-}
+import { CommomInterface } from "./commom.model";
+
+export interface Poder extends CommomInterface {}

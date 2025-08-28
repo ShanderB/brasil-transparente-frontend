@@ -1,6 +1,6 @@
-export interface DespesaSimplificada {
-  id: number;
-  name: string;
-  totalValue: number;
-  percentageOfTotal: number;
+import { CommomInterface } from "./commom.model";
+
+export interface DespesaSimplificada extends Omit<CommomInterface, 'id'> {
+  despesaSimplificadaId: number;
+  unidadeFederativaId: string;
 }
