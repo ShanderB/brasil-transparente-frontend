@@ -5,12 +5,15 @@ import { DespesaSimplificada } from '../../models/despesa-simplificada.model';
 import { Poder } from '../../models/poder.model';
 import { environment } from '../../../environments/environment.development';
 import { StorageService } from '../storage/storage.service';
+import { Ministerio } from '../../models/ministerio.model';
+import { Orgao } from '../../models/orgao.model';
+import { UnidadeGestora } from '../../models/unidade-gestora.model';
+import { ElementoDespesa } from '../../models/elemento-despesa.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  //TODO mover as URLS para arquivo referente a cada endpoint
   private readonly API_BASE = environment.apiBase;
   private readonly http: HttpClient = inject(HttpClient);
   private readonly storageService: StorageService = inject(StorageService);
@@ -50,23 +53,23 @@ export class ApiService {
     return this.getWithCache<Poder[]>(url);
   }
 
-  getMinisterios(poderId: number): Observable<any[]> {
+  getMinisterios(poderId: number): Observable<Ministerio[]> {
     const url = `${this.API_BASE}/poder/${poderId}/ministerios`;
-    return this.getWithCache<any[]>(url);
+    return this.getWithCache<Ministerio[]>(url);
   }
 
-  getOrgaos(ministerioId: number): Observable<any[]> {
+  getOrgaos(ministerioId: number): Observable<Orgao[]> {
     const url = `${this.API_BASE}/ministerio/${ministerioId}/orgaos`;
-    return this.getWithCache<any[]>(url);
+    return this.getWithCache<Orgao[]>(url);
   }
 
-  getUnidadesGestoras(orgaoId: number): Observable<any[]> {
+  getUnidadesGestoras(orgaoId: number): Observable<UnidadeGestora[]> {
     const url = `${this.API_BASE}/orgao/${orgaoId}/unidades-gestoras`;
-    return this.getWithCache<any[]>(url);
+    return this.getWithCache<UnidadeGestora[]>(url);
   }
 
-  getElementoDespesa(unidadeId: number): Observable<any[]> {
+  getElementoDespesa(unidadeId: number): Observable<ElementoDespesa[]> {
     const url = `${this.API_BASE}/unidade-gestora/${unidadeId}/elemento-despesa`;
-    return this.getWithCache<any[]>(url);
+    return this.getWithCache<ElementoDespesa[]>(url);
   }
 }
