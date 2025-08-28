@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { environment } from '../../../environments/environment.development';
 
 @Component({
   selector: 'app-footer',
@@ -10,13 +11,16 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
+  isCopiadoClicado: boolean = false;
+  pixKey: string = environment.pixKey;
+  contactEmail: string = environment.contactEmail;
+
   copyPixKey(): void {
-    navigator.clipboard.writeText('brasiltransparente@pm.me');
-    const button = document.querySelector('.donation-pix-copy-btn');
-    if (button) button.textContent = 'Copiado!';
+    navigator.clipboard.writeText(this.pixKey);
+    this.isCopiadoClicado = true;
 
     setTimeout(() => {
-      if (button) button.textContent = 'Copiar';
+      this.isCopiadoClicado = false;
     }, 1500);
   }
 }
