@@ -5,10 +5,10 @@
         </a>
         @if(router.url === '/'){
             <nav class="report-nav">
-                <button (click)="navigateToEstados()" class="report-button"
+                <button routerLink="/estados" class="report-button"
                     (mouseover)="onMouseOverStateButton()" (mouseout)="onMouseOutStateButton()">
                     <img [src]="federalEntityImage()" alt="Estado" id="state-image">
-                    <span id="state-name">{{federalEntityName()}}</span>
+                    <span id="state-name">{{isEstadoHovered() ? 'Selecionar outro' : federalEntityName()}}</span>
                 </button>
                 <button class="report-button report-button-text-center" [class.active]="activeReport() === reportType.Simplificado"
                 (click)="setActiveReport(reportType.Simplificado)">

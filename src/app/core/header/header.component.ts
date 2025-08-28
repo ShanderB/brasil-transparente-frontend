@@ -1,5 +1,5 @@
 import { Component, inject, signal, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { StorageService } from '../../services/storage/storage.service';
 import { ReportType } from '../../models/tipos-relatorios.model';
 import { Subject } from 'rxjs';
@@ -10,7 +10,7 @@ import { takeUntil } from 'rxjs/operators';
   standalone: true,
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  imports: []
+  imports: [RouterLink]
 })
 export class HeaderComponent implements OnDestroy {
   private readonly storageService: StorageService = inject(StorageService);
@@ -18,6 +18,7 @@ export class HeaderComponent implements OnDestroy {
 
   federalEntityName = signal('União Federal');
   federalEntityImage = signal('');
+  isEstadoHovered = signal(false);
   activeReport = this.storageService.activeReport
 
   reportType = ReportType;
@@ -47,18 +48,10 @@ export class HeaderComponent implements OnDestroy {
   }
 
   onMouseOverStateButton(): void {
-    //TODO remover manipulação direta do DOM e fazer via Angular
-    const button = document.querySelector('.report-button[data-report="geral"] span');
-    if (button) button.textContent = 'Selecionar outro';
+    this.isEstadoHovered.set(true);
   }
 
   onMouseOutStateButton(): void {
-    const button = document.querySelector('.report-button[data-report="geral"] span');
-    if (button) button.textContent = this.federalEntityName();
-  }
-
-  navigateToEstados(): void {
-    //TODO mover para o routerLink
-    this.router.navigate(['/estados']);
+    this.isEstadoHovered.set(false);
   }
 }
