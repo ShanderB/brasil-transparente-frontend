@@ -52,5 +52,4 @@ Consulte o arquivo LICENSE.md para o texto completo da licença.
 
 
 // TODO - Ajustar SEO
-// TODO - Remover todos os any
 // TODO - Adicionar error toast
