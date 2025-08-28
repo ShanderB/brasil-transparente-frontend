@@ -6,6 +6,9 @@ import { CommonModule } from '@angular/common';
 import { ToggleBarItemComponent } from '../toggle-bar-item/toggle-bar-item.component';
 import { ReportType } from '../../models/tipos-relatorios.model';
 import { Subject, takeUntil } from 'rxjs';
+import { DespesaSimplificada } from '../../models/despesa-simplificada.model';
+import { Poder } from '../../models/poder.model';
+import { CommomWithChildren } from '../../models/commom.model';
 
 @Component({
   selector: 'app-home',
@@ -24,8 +27,8 @@ export class HomeComponent {
   totalValue: number = 0;
   isLoading: boolean = false;
   activeReport = this.storageService.activeReport;
-  simplifiedData: any[] = [];
-  poderes: any[] = [];
+  simplifiedData: DespesaSimplificada[] = [];
+  poderes: Poder[] = [];
   showRawTotal = signal(false);
   reportType = ReportType;
 
@@ -105,7 +108,7 @@ export class HomeComponent {
     return this.dataService.formatCurrency(value);
   }
 
-  onTogglePoder(item: any): void {
+  onTogglePoder(item: CommomWithChildren): void {
     item.expanded = !item.expanded;
     if (item.expanded && !item.children) {
       let observable;
