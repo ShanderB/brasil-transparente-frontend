@@ -1,4 +1,4 @@
-import { Component, inject, output, signal, OnDestroy } from '@angular/core';
+import { Component, inject, signal, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { StorageService } from '../../services/storage/storage.service';
 import { ReportType } from '../../models/tipos-relatorios.model';
@@ -17,7 +17,7 @@ export class HeaderComponent implements OnDestroy {
   public readonly router: Router = inject(Router);
 
   federalEntityName = signal('União Federal');
-  federalEntityImage = signal('images/estados/uniao.png');
+  federalEntityImage = signal('');
   activeReport = this.storageService.activeReport
 
   reportType = ReportType;
@@ -47,6 +47,7 @@ export class HeaderComponent implements OnDestroy {
   }
 
   onMouseOverStateButton(): void {
+    //TODO remover manipulação direta do DOM e fazer via Angular
     const button = document.querySelector('.report-button[data-report="geral"] span');
     if (button) button.textContent = 'Selecionar outro';
   }

@@ -1,6 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ReportType } from '../../models/tipos-relatorios.model';
+import { environment } from '../../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { ReportType } from '../../models/tipos-relatorios.model';
 export class StorageService {
   // TODO alterar para signal
   private federalEntityNameSubject = new BehaviorSubject<string>('União Federal');
-  private federalEntityImageSubject = new BehaviorSubject<string>('/images/estados/uniao.png');
+  private federalEntityImageSubject = new BehaviorSubject<string>(environment.estados.find(e => e.id === 1)!.imagem);
   private federalEntityIdSubject = new BehaviorSubject<string>('1');
 
   federalEntityName$ = this.federalEntityNameSubject.asObservable();
