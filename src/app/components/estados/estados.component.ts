@@ -10,7 +10,7 @@ import { StorageService } from '../../services/storage/storage.service'; // adic
   standalone: true,
   templateUrl: './estados.component.html',
   styleUrl: './estados.component.scss',
-  imports: [RouterLink, CommonModule, VoltarInicioComponent]
+  imports: [CommonModule, VoltarInicioComponent]
 })
 export class EstadosComponent {
   private readonly router: Router = inject(Router);
