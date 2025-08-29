@@ -17,60 +17,47 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
+            "aot": true,
+            "preserveSymlinks": true,
+            "outputPath": "dist",
+            "progress": false,
+            "index": "src/index.html",
             "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
-            "styles": [
-              "src/styles.scss",
-              "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
-            ],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            "styles": ["src/styles.scss"]
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "6kb"
                 }
               ],
-              "outputHashing": "all"
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "index": {
+                "input": "src/index.prod.html",
+                "output": "index.html"
+              },
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.development.ts",
+                  "with": "src/environments/environment.ts"
+                }
+              ]
             },
             "development": {
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true,
-              "aot": false,
-              "outputHashing": "none",
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.development.ts"
-                }
-              ]
+              "namedChunks": true
             }
-          },
-          "defaultConfiguration": "production"
+          }
         },
         "serve": {
           "builder": "@angular/build:dev-server",
@@ -90,25 +77,29 @@
         "test": {
           "builder": "@angular/build:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
+            "styles": ["src/styles.scss"],
+            "assets": ["public", "public/images/favicon.ico"],
+            "codeCoverageExclude": ["src/app/documentation/**/*"]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "eslintConfig": ".eslintrc.js",
+            "tsConfig": [
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "tsconfig.json"
             ],
-            "styles": [
-              "src/styles.scss",
-              "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

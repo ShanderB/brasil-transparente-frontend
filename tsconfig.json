@@ -15,7 +15,16 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "ES2022",
-    "module": "preserve"
+    "module": "preserve",
+    "baseUrl": "./src",
+    "declaration": false,
+    "esModuleInterop": true,
+    "lib": ["ES2022", "dom"],
+    "outDir": "./dist/out-tsc",
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "typeRoots": ["node_modules/@types"],
+    "useDefineForClassFields": false
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

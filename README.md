@@ -3,6 +3,7 @@
 ### Pré-requisitos
 - Node.JS (^20.19.0 || ^22.12.0 || ^24.0.0)
 - Angular CLI (^20.2.0)
+- Preetier
 - Git
 
 # Passos para rodar o projeto localmente
