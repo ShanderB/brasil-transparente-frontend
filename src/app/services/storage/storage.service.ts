@@ -7,6 +7,8 @@ import { environment } from '../../../environments/environment.development';
   providedIn: 'root'
 })
 export class StorageService {
+  private static readonly SHOULD_CACHE = environment.shouldCache;
+
   // TODO alterar para signal
   private federalEntityNameSubject = new BehaviorSubject<string>(
     'União Federal'
@@ -52,6 +54,8 @@ export class StorageService {
   }
 
   getCached<T>(url: string): T | null {
+    if (!StorageService.SHOULD_CACHE) return null;
+
     const cached = localStorage.getItem(this.cacheKey(url));
     if (!cached) return null;
 

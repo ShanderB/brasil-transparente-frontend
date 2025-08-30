@@ -2,6 +2,7 @@ import { OrigemPreposicao } from "../app/models/origem-fonte-dados.model";
 
 export const environment = {
   apiBase: 'http://localhost:8080',
+  shouldCache: false,
   pixKey: 'brasiltransparente@pm.me',
   contactEmail: 'brasiltransparente@pm.me',
   estados: [
