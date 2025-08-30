@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --configuration development",
-    "prod": "ng serve --configuration production",
+    "start": "set API_BASE=http://localhost:8080 && ng serve --configuration development --proxy-config proxy.conf.js",
+    "prod": "ng serve --configuration production --proxy-config proxy.conf.js",
     "build": "ng build --configuration production",
     "build:dev": "ng build --configuration development",
     "test": "ng test",
