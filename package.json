@@ -6,7 +6,7 @@
     "start": "ng serve --configuration development",
     "prod": "ng serve --configuration production",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "build:dev": "ng build --configuration development",
     "test": "ng test",
     "serve:ssr:brasil-transparente": "node dist/brasil-transparente/server/server.mjs",
     "lint": "ng lint"
