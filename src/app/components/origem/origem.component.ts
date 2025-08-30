@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { VoltarInicioComponent } from '../voltar-inicio/voltar-inicio.component';
-import { environment } from '../../../environments/environment';
+import { environmentData } from '../../../environments/environment.data';
 
 @Component({
   selector: 'app-origem',
@@ -10,5 +10,5 @@ import { environment } from '../../../environments/environment';
   standalone: true
 })
 export class OrigemComponent {
-  fontesDados = environment.fontesDadosOrigem;
+  fontesDados = environmentData.fontesDadosOrigem;
 }

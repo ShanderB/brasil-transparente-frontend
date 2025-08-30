@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { environment } from '../../../environments/environment';
+import { environmentData } from '../../../environments/environment.data';
 import { VoltarInicioComponent } from '../voltar-inicio/voltar-inicio.component';
 import { StorageService } from '../../services/storage/storage.service'; // adicione esta linha
 
@@ -16,7 +16,7 @@ export class EstadosComponent {
   private readonly router: Router = inject(Router);
   private readonly storageService: StorageService = inject(StorageService);
 
-  readonly estados = environment.estados.sort((a, b) => {
+  readonly estados = environmentData.estados.sort((a, b) => {
     // União Federativa sempre primeiro
     if (a.id === 1) return -1;
     if (b.id === 1) return 1;

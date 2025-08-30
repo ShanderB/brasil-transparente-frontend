@@ -1,7 +1,8 @@
 import { Injectable, signal } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ReportType } from '../../models/tipos-relatorios.model';
-import { environment } from '../../../environments/environment.development';
+import { environmentData } from '../../../environments/environment.data';
+import { environment } from 'environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class StorageService {
     'União Federal'
   );
   private federalEntityImageSubject = new BehaviorSubject<string>(
-    environment.estados.find(e => e.id === 1)!.imagem
+    environmentData.estados.find(e => e.id === 1)!.imagem
   );
   private federalEntityIdSubject = new BehaviorSubject<string>('1');
 

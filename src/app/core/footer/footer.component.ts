@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { environment } from '../../../environments/environment.development';
+import { environmentData } from '../../../environments/environment.data';
 
 @Component({
   selector: 'app-footer',
@@ -12,8 +12,8 @@ import { environment } from '../../../environments/environment.development';
 })
 export class FooterComponent {
   isCopiadoClicado = false;
-  pixKey: string = environment.pixKey;
-  contactEmail: string = environment.contactEmail;
+  pixKey: string = environmentData.pixKey;
+  contactEmail: string = environmentData.contactEmail;
 
   copyPixKey(): void {
     navigator.clipboard.writeText(this.pixKey);
