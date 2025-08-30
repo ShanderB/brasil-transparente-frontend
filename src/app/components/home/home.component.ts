@@ -1,4 +1,11 @@
-import { Component, effect, inject, signal } from '@angular/core';
+import {
+  Component,
+  effect,
+  inject,
+  OnDestroy,
+  OnInit,
+  signal
+} from '@angular/core';
 import { ApiService } from '../../services/api/api.service';
 import { DataService } from '../../services/data/data.service';
 import { StorageService } from '../../services/storage/storage.service';
@@ -17,15 +24,15 @@ import { CommomWithChildren } from '../../models/commom.model';
   standalone: true,
   imports: [CommonModule, ToggleBarItemComponent]
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit, OnDestroy {
   private readonly apiService: ApiService = inject(ApiService);
   private readonly dataService: DataService = inject(DataService);
   private readonly storageService: StorageService = inject(StorageService);
   private destroy$ = new Subject<void>();
 
-  federalEntityId: string = '1';
-  totalValue: number = 0;
-  isLoading: boolean = false;
+  federalEntityId = '1';
+  totalValue = 0;
+  isLoading = false;
   activeReport = this.storageService.activeReport;
   simplifiedData: DespesaSimplificada[] = [];
   poderes: Poder[] = [];
@@ -63,10 +70,12 @@ export class HomeComponent {
 
   loadData(): void {
     this.isLoading = true;
-    this.apiService.getTotalValueSpent(this.federalEntityId).subscribe(total => {
-      this.totalValue = total;
-      this.loadReportData();
-    });
+    this.apiService
+      .getTotalValueSpent(this.federalEntityId)
+      .subscribe(total => {
+        this.totalValue = total;
+        this.loadReportData();
+      });
   }
 
   loadReportData(): void {
@@ -80,10 +89,12 @@ export class HomeComponent {
   loadSimplifiedReport(): void {
     this.isLoading = true;
 
-    this.apiService.getDespesaSimplificada(this.federalEntityId).subscribe(data => {
-      this.simplifiedData = data;
-      this.isLoading = false;
-    });
+    this.apiService
+      .getDespesaSimplificada(this.federalEntityId)
+      .subscribe(data => {
+        this.simplifiedData = data;
+        this.isLoading = false;
+      });
   }
 
   loadDetailedReport(): void {

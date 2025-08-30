@@ -8,8 +8,12 @@ import { environment } from '../../../environments/environment.development';
 })
 export class StorageService {
   // TODO alterar para signal
-  private federalEntityNameSubject = new BehaviorSubject<string>('União Federal');
-  private federalEntityImageSubject = new BehaviorSubject<string>(environment.estados.find(e => e.id === 1)!.imagem);
+  private federalEntityNameSubject = new BehaviorSubject<string>(
+    'União Federal'
+  );
+  private federalEntityImageSubject = new BehaviorSubject<string>(
+    environment.estados.find(e => e.id === 1)!.imagem
+  );
   private federalEntityIdSubject = new BehaviorSubject<string>('1');
 
   federalEntityName$ = this.federalEntityNameSubject.asObservable();

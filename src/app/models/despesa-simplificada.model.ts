@@ -1,4 +1,4 @@
-import { CommomInterface } from "./commom.model";
+import { CommomInterface } from './commom.model';
 
 export interface DespesaSimplificada extends Omit<CommomInterface, 'id'> {
   despesaSimplificadaId: number;

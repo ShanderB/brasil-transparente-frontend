@@ -11,7 +11,7 @@ import { environment } from '../../../environments/environment.development';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
-  isCopiadoClicado: boolean = false;
+  isCopiadoClicado = false;
   pixKey: string = environment.pixKey;
   contactEmail: string = environment.contactEmail;
 

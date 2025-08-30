@@ -14,7 +14,7 @@ import { ElementoDespesa } from '../../models/elemento-despesa.model';
   providedIn: 'root'
 })
 export class ApiService {
-  private readonly API_BASE = environment.apiBase;
+  private static readonly API_BASE = environment.apiBase;
   private readonly http: HttpClient = inject(HttpClient);
   private readonly storageService: StorageService = inject(StorageService);
 
@@ -28,48 +28,50 @@ export class ApiService {
     }
     return new Observable<T>(observer => {
       this.http.get<T>(url).subscribe({
-        next: (data) => {
+        next: data => {
           this.storageService.setCache(url, data);
           observer.next(data);
           observer.complete();
         },
-        error: (err) => observer.error(err)
+        error: err => observer.error(err)
       });
     });
   }
 
   getTotalValueSpent(federalEntityId: string): Observable<number> {
-    const url = `${this.API_BASE}/unidade-federativa/${federalEntityId}/total-value-spent`;
+    const url = `${ApiService.API_BASE}/unidade-federativa/${federalEntityId}/total-value-spent`;
     return this.getWithCache<number>(url);
   }
 
-  getDespesaSimplificada(federalEntityId: string): Observable<DespesaSimplificada[]> {
-    const url = `${this.API_BASE}/despesa-simplificada/${federalEntityId}`;
+  getDespesaSimplificada(
+    federalEntityId: string
+  ): Observable<DespesaSimplificada[]> {
+    const url = `${ApiService.API_BASE}/despesa-simplificada/${federalEntityId}`;
     return this.getWithCache<DespesaSimplificada[]>(url);
   }
 
   getPoderes(federalEntityId: string): Observable<Poder[]> {
-    const url = `${this.API_BASE}/unidade-federativa/${federalEntityId}/poderes`;
+    const url = `${ApiService.API_BASE}/unidade-federativa/${federalEntityId}/poderes`;
     return this.getWithCache<Poder[]>(url);
   }
 
   getMinisterios(poderId: number): Observable<Ministerio[]> {
-    const url = `${this.API_BASE}/poder/${poderId}/ministerios`;
+    const url = `${ApiService.API_BASE}/poder/${poderId}/ministerios`;
     return this.getWithCache<Ministerio[]>(url);
   }
 
   getOrgaos(ministerioId: number): Observable<Orgao[]> {
-    const url = `${this.API_BASE}/ministerio/${ministerioId}/orgaos`;
+    const url = `${ApiService.API_BASE}/ministerio/${ministerioId}/orgaos`;
     return this.getWithCache<Orgao[]>(url);
   }
 
   getUnidadesGestoras(orgaoId: number): Observable<UnidadeGestora[]> {
-    const url = `${this.API_BASE}/orgao/${orgaoId}/unidades-gestoras`;
+    const url = `${ApiService.API_BASE}/orgao/${orgaoId}/unidades-gestoras`;
     return this.getWithCache<UnidadeGestora[]>(url);
   }
 
   getElementoDespesa(unidadeId: number): Observable<ElementoDespesa[]> {
-    const url = `${this.API_BASE}/unidade-gestora/${unidadeId}/elemento-despesa`;
+    const url = `${ApiService.API_BASE}/unidade-gestora/${unidadeId}/elemento-despesa`;
     return this.getWithCache<ElementoDespesa[]>(url);
   }
 }

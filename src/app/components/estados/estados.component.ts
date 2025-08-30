@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { environment } from '../../../environments/environment';
 import { VoltarInicioComponent } from '../voltar-inicio/voltar-inicio.component';
@@ -29,8 +29,16 @@ export class EstadosComponent {
     return a.nome.localeCompare(b.nome);
   });
 
-  selectState(federalEntity: string, federalEntityImage: string, federalEntityId: number): void {
-    this.storageService.setFederalEntity(federalEntity, federalEntityImage, federalEntityId.toString());
+  selectState(
+    federalEntity: string,
+    federalEntityImage: string,
+    federalEntityId: number
+  ): void {
+    this.storageService.setFederalEntity(
+      federalEntity,
+      federalEntityImage,
+      federalEntityId.toString()
+    );
     this.router.navigate(['/']);
   }
 }
