@@ -3,12 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "set API_BASE=http://localhost:8080 && ng serve --configuration development --proxy-config proxy.conf.js",
-    "prod": "ng serve --configuration production --proxy-config proxy.conf.js",
+    "start": "ng serve --configuration development",
+    "prod": "ng serve --configuration production",
     "build": "ng build --configuration production",
     "build:dev": "ng build --configuration development",
     "test": "ng test",
-    "serve:ssr:brasil-transparente": "node dist/brasil-transparente/server/server.mjs",
     "lint": "ng lint"
   },
   "prettier": {
