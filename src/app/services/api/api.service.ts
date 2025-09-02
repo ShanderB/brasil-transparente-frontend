@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { DespesaSimplificada } from '../../models/despesa-simplificada.model';
 import { Poder } from '../../models/poder.model';
+import { environment } from '../../../environments/environment.development';
 import { StorageService } from '../storage/storage.service';
 import { Ministerio } from '../../models/ministerio.model';
 import { Orgao } from '../../models/orgao.model';
@@ -13,6 +14,7 @@ import { ElementoDespesa } from '../../models/elemento-despesa.model';
   providedIn: 'root'
 })
 export class ApiService {
+  private static readonly API_BASE = environment.apiBase;
   private readonly http: HttpClient = inject(HttpClient);
   private readonly storageService: StorageService = inject(StorageService);
 
@@ -37,39 +39,39 @@ export class ApiService {
   }
 
   getTotalValueSpent(federalEntityId: string): Observable<number> {
-    const url = `/unidade-federativa/${federalEntityId}/total-value-spent`;
+    const url = `${ApiService.API_BASE}/unidade-federativa/${federalEntityId}/total-value-spent`;
     return this.getWithCache<number>(url);
   }
 
   getDespesaSimplificada(
     federalEntityId: string
   ): Observable<DespesaSimplificada[]> {
-    const url = `/despesa-simplificada/${federalEntityId}`;
+    const url = `${ApiService.API_BASE}/despesa-simplificada/${federalEntityId}`;
     return this.getWithCache<DespesaSimplificada[]>(url);
   }
 
   getPoderes(federalEntityId: string): Observable<Poder[]> {
-    const url = `/unidade-federativa/${federalEntityId}/poderes`;
+    const url = `${ApiService.API_BASE}/unidade-federativa/${federalEntityId}/poderes`;
     return this.getWithCache<Poder[]>(url);
   }
 
   getMinisterios(poderId: number): Observable<Ministerio[]> {
-    const url = `/poder/${poderId}/ministerios`;
+    const url = `${ApiService.API_BASE}/poder/${poderId}/ministerios`;
     return this.getWithCache<Ministerio[]>(url);
   }
 
   getOrgaos(ministerioId: number): Observable<Orgao[]> {
-    const url = `/ministerio/${ministerioId}/orgaos`;
+    const url = `${ApiService.API_BASE}/ministerio/${ministerioId}/orgaos`;
     return this.getWithCache<Orgao[]>(url);
   }
 
   getUnidadesGestoras(orgaoId: number): Observable<UnidadeGestora[]> {
-    const url = `/orgao/${orgaoId}/unidades-gestoras`;
+    const url = `${ApiService.API_BASE}/orgao/${orgaoId}/unidades-gestoras`;
     return this.getWithCache<UnidadeGestora[]>(url);
   }
 
   getElementoDespesa(unidadeId: number): Observable<ElementoDespesa[]> {
-    const url = `/unidade-gestora/${unidadeId}/elemento-despesa`;
+    const url = `${ApiService.API_BASE}/unidade-gestora/${unidadeId}/elemento-despesa`;
     return this.getWithCache<ElementoDespesa[]>(url);
   }
 }
