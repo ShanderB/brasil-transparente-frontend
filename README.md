@@ -69,10 +69,3 @@ Este projeto está licenciado sob os termos da **GNU Affero General Public Licen
 - 🌍 Código-fonte deve ser disponibilizado para usuários.
 
 Consulte o arquivo LICENSE.md para o texto completo da licença.
-
-
-// TODO - Ajustar SEO
-// TODO - olhar os TODO
-// Criar issue para criar toast de error.
-Criar draw IO
-rodar script do cara somente se não estiver local
