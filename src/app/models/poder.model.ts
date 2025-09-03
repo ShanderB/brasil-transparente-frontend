@@ -1,3 +1,1 @@
-import { CommomInterface } from "./commom.model";
-
-export interface Poder extends CommomInterface {}
+export type Poder = import('./commom.model').CommomInterface;

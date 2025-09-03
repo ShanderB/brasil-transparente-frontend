@@ -4,7 +4,13 @@
     [class.bar-label-final]="isLastLevel()"
     [style.cursor]="isLastLevel() ? 'default' : 'pointer'"
     (click)="onToggle()"
-    [innerHTML]="isLastLevel() ? name() : name() + ' <i class=\'fas fa-' + (isExpanded() ? 'minus' : 'plus') + '\'></i>'"
+    tabindex="0"
+    (keypress.space)="onToggle()"
+    [innerHTML]="
+      isLastLevel()
+        ? name()
+        : name() + ' <i class=\'fas fa-' + (isBarExpanded() ? 'minus' : 'plus') + '\'></i>'
+    "
   ></span>
   <div
     class="bar"
@@ -13,12 +19,15 @@
     (mouseenter)="showRawTotal.set(true)"
     (mouseleave)="showRawTotal.set(false)"
   >
-    {{ showRawTotal() ? formatCurrency(totalValueSpent()) : formatLargeCurrency(totalValueSpent()) }} ({{ percentageOfTotal() | number:'1.2-2' }}%)
+    {{
+      showRawTotal() ? formatCurrency(totalValueSpent()) : formatLargeCurrency(totalValueSpent())
+    }}
+    ({{ percentageOfTotal() | number : '1.2-2' }}%)
   </div>
 
-  @if(isExpanded() && !isLastLevel()) {
-    <div class="children-container">
-      <ng-content></ng-content>
-    </div>
+  @if(isBarExpanded() && !isLastLevel()) {
+  <div class="children-container">
+    <ng-content></ng-content>
+  </div>
   }
 </div>

@@ -1,9 +1,9 @@
 export enum OrigemPreposicao {
-    do = 'do',
-    da = 'da',
-    de = 'de',
-    dos = 'dos',
-    das = 'das'
+  Do = 'do',
+  Da = 'da',
+  De = 'de',
+  Dos = 'dos',
+  Das = 'das'
 }
 
 export interface FonteDados {

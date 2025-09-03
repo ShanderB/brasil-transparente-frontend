@@ -1,3 +1,1 @@
-import { CommomInterface } from "./commom.model";
-
-export interface Ministerio extends CommomInterface {}
+export type Ministerio = import('./commom.model').CommomInterface;

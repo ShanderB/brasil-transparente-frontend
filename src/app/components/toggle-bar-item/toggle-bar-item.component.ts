@@ -1,5 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, Output, EventEmitter, input, InputSignal, output, computed, signal, inject } from '@angular/core';
+import {
+  Component,
+  input,
+  InputSignal,
+  output,
+  signal,
+  inject
+} from '@angular/core';
 import { DataService } from '../../services/data/data.service';
 
 @Component({
@@ -14,7 +21,7 @@ export class ToggleBarItemComponent {
 
   name: InputSignal<string> = input.required<string>();
   level: InputSignal<number> = input(0);
-  isExpanded: InputSignal<boolean> = input(false);
+  isBarExpanded: InputSignal<boolean> = input(false);
   totalValueSpent: InputSignal<number> = input.required<number>();
   percentageOfTotal: InputSignal<number> = input.required<number>();
   barColor: InputSignal<string> = input('#3db6f2');

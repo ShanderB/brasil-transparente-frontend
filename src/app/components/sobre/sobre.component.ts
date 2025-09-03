@@ -8,6 +8,4 @@ import { VoltarInicioComponent } from '../voltar-inicio/voltar-inicio.component'
   styleUrl: './sobre.component.scss',
   standalone: true
 })
-export class SobreComponent {
-
-}
+export class SobreComponent {}

@@ -1,15 +1,22 @@
 import { Injectable, signal } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ReportType } from '../../models/tipos-relatorios.model';
-import { environment } from '../../../environments/environment.development';
+import { environmentData } from '../../../environments/environment.data';
+import { environment } from 'environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StorageService {
+  private static readonly SHOULD_CACHE = environment.shouldCache;
+
   // TODO alterar para signal
-  private federalEntityNameSubject = new BehaviorSubject<string>('União Federal');
-  private federalEntityImageSubject = new BehaviorSubject<string>(environment.estados.find(e => e.id === 1)!.imagem);
+  private federalEntityNameSubject = new BehaviorSubject<string>(
+    'União Federal'
+  );
+  private federalEntityImageSubject = new BehaviorSubject<string>(
+    environmentData.estados.find(e => e.id === 1)!.imagem
+  );
   private federalEntityIdSubject = new BehaviorSubject<string>('1');
 
   federalEntityName$ = this.federalEntityNameSubject.asObservable();
@@ -48,6 +55,8 @@ export class StorageService {
   }
 
   getCached<T>(url: string): T | null {
+    if (!StorageService.SHOULD_CACHE) return null;
+
     const cached = localStorage.getItem(this.cacheKey(url));
     if (!cached) return null;
 

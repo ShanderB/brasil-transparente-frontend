@@ -8,6 +8,4 @@ import { VoltarInicioComponent } from '../voltar-inicio/voltar-inicio.component'
   styleUrl: './metodologia.component.scss',
   standalone: true
 })
-export class MetodologiaComponent {
-
-}
+export class MetodologiaComponent {}

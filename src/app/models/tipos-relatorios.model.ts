@@ -1,4 +1,4 @@
 export enum ReportType {
-    Simplificado = 'simplificado',
-    Completo = 'completo'
+  Simplificado = 'simplificado',
+  Completo = 'completo'
 }

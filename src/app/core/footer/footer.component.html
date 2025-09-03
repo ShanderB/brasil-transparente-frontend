@@ -1,32 +1,30 @@
 <footer>
-    <div class="footer-content">
-        <div class="footer-section">
-            <h3>Explorar</h3>
-            <ul class="footer-links">
-                <li><a routerLink="/sobre">Sobre</a></li>
-                <li><a routerLink="/metodologia">Metodologia</a></li>
-                <li><a routerLink="/origem">Origem dos Dados</a></li>
-                <li><a href="https://github.com/brasil-transparente" target="_blank">Repositório GitHub</a></li>
-            </ul>
-        </div>
-        <div class="footer-section">
-            <h3>Apoie o projeto!</h3>
-            <ul class="footer-links">
-                <li class="donation-pix-item">
-                    <i class="fa-brands fa-pix donation-pix-icon"></i>
-                    <span id="pix-key" class="donation-pix-key">{{ pixKey }}</span>
-                    <button class="donation-pix-copy-btn" (click)="copyPixKey()">
-                        @if(!isCopiadoClicado){
-                            Copiar
-                        } @else {
-                            Copiado!
-                        }
-                    </button>
-                </li>
-            </ul>
-        </div>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Explorar</h3>
+      <ul class="footer-links">
+        <li><a routerLink="/sobre">Sobre</a></li>
+        <li><a routerLink="/metodologia">Metodologia</a></li>
+        <li><a routerLink="/origem">Origem dos Dados</a></li>
+        <li>
+          <a href="https://github.com/brasil-transparente" target="_blank">Repositório GitHub</a>
+        </li>
+      </ul>
     </div>
-    <div class="footer-bottom">
-        <p>Transparência se constrói com dados ao alcance de todos | Contato: {{ contactEmail }}</p>
+    <div class="footer-section">
+      <h3>Apoie o projeto!</h3>
+      <ul class="footer-links">
+        <li class="donation-pix-item">
+          <i class="fa-brands fa-pix donation-pix-icon"></i>
+          <span id="pix-key" class="donation-pix-key">{{ pixKey }}</span>
+          <button class="donation-pix-copy-btn" (click)="copyPixKey()">
+            @if(!isCopiadoClicado){ Copiar } @else { Copiado! }
+          </button>
+        </li>
+      </ul>
     </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Transparência se constrói com dados ao alcance de todos | Contato: {{ contactEmail }}</p>
+  </div>
 </footer>

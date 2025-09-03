@@ -1,3 +1,1 @@
-import { CommomInterface } from "./commom.model";
-
-export interface UnidadeGestora extends CommomInterface {}
+export type UnidadeGestora = import('./commom.model').CommomInterface;
