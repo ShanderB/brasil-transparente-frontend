@@ -3,6 +3,7 @@
 ### Pré-requisitos
 - Node.JS (^20.19.0 || ^22.12.0 || ^24.0.0)
 - Angular CLI (^20.2.0)
+- Preetier
 - Git
 
 # Passos para rodar o projeto localmente
@@ -20,6 +21,8 @@ cd brasil-transparente-frontend
 Instalar as dependências
 ```bash
 npm install
+
+npm i -g @angular/cli@20.2.0 prettier
 ```
 
 ### Configuração de variáveis de ambiente
@@ -28,11 +31,28 @@ Configurar o arquivo `environment.ts` localizado em `src\environments\environmen
 apiUrl: 'URL_DA_API'
 ```
 
-### Iniciar o servidor de desenvolvimento
+Atualmente o projeto não está utilizando proxy do angular (foi feito mas removido). Para rodar, é necessário acessar o arquivo `brasil-transparente-api\src\main\java\com\brasil\transparente\api\controller\FinderController.java` e alterar o CORS, removendo o comentário da anotação `@CrossOrigin` e seguir com o start do projeto conforme o readme.
+
+### Iniciar o servidor de desenvolvimento local
 
 ```bash
 npm start
 ```
+
+Ao executar o projeto local, a feature de cache local (localStorage) estará desabilitada. Para habilitar, alterar a variável `SHOULD_CACHE` para `true` no arquivo de environment `src\environments\environment.development.ts`.
+
+### Build para produção
+
+```bash
+docker build -t brasil-transparente-frontend .
+```
+
+Após gerado a imagem, rode o container:
+
+```bash
+docker run -p 80:80 brasil-transparente-frontend
+```
+
 
 ## 🤝 Como Contribuir
 - 📌 **Participe no Discord**: A melhor forma de ajudar na contribuição do projeto é estar alinhado com o que está sendo discutido no nosso Discord:
@@ -49,7 +69,3 @@ Este projeto está licenciado sob os termos da **GNU Affero General Public Licen
 - 🌍 Código-fonte deve ser disponibilizado para usuários.
 
 Consulte o arquivo LICENSE.md para o texto completo da licença.
-
-
-// TODO - Ajustar SEO
-// TODO - Adicionar error toast

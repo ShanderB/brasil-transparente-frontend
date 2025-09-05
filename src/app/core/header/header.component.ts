@@ -1,4 +1,4 @@
-import { Component, inject, signal, OnDestroy } from '@angular/core';
+import { Component, inject, signal, OnDestroy, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { StorageService } from '../../services/storage/storage.service';
 import { ReportType } from '../../models/tipos-relatorios.model';
@@ -12,7 +12,7 @@ import { takeUntil } from 'rxjs/operators';
   styleUrls: ['./header.component.scss'],
   imports: [RouterLink]
 })
-export class HeaderComponent implements OnDestroy {
+export class HeaderComponent implements OnInit, OnDestroy {
   private readonly storageService: StorageService = inject(StorageService);
   public readonly router: Router = inject(Router);
 
@@ -20,7 +20,7 @@ export class HeaderComponent implements OnDestroy {
   federalEntityImage = signal('');
   federalEntityId = signal('1');
   isEstadoHovered = signal(false);
-  activeReport = this.storageService.activeReport
+  activeReport = this.storageService.activeReport;
 
   reportType = ReportType;
 

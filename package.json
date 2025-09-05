@@ -5,19 +5,31 @@
     "ng": "ng",
     "start": "ng serve --configuration development",
     "prod": "ng serve --configuration production",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "build": "ng build --configuration production",
+    "build:dev": "ng build --configuration development",
     "test": "ng test",
-    "serve:ssr:brasil-transparente": "node dist/brasil-transparente/server/server.mjs"
+    "lint": "ng lint"
   },
   "prettier": {
-    "printWidth": 100,
+    "printWidth": 80,
     "singleQuote": true,
+    "useTabs": false,
+    "tabWidth": 2,
+    "semi": true,
+    "arrowParens": "avoid",
+    "bracketSpacing": true,
+    "trailingComma": "none",
     "overrides": [
       {
-        "files": "*.html",
+        "files": "src/**/*.html",
         "options": {
-          "parser": "angular"
+          "printWidth": 100
+        }
+      },
+      {
+        "files": "src/**/*.scss",
+        "options": {
+          "printWidth": 140
         }
       }
     ]
@@ -45,12 +57,15 @@
     "@types/express": "^5.0.1",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^20.17.19",
+    "angular-eslint": "20.2.0",
+    "eslint": "^9.33.0",
     "jasmine-core": "~5.9.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.9.2"
+    "typescript": "~5.9.2",
+    "typescript-eslint": "8.40.0"
   }
 }

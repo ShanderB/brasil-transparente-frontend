@@ -1,3 +1,1 @@
-import { CommomInterface } from "./commom.model";
-
-export interface Orgao extends CommomInterface {}
+export type Orgao = import('./commom.model').CommomInterface;

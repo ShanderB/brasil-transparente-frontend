@@ -1,30 +1,53 @@
 <header>
-    <div class="header-content">
-        <a routerLink="/">
-            <img src="/images/white-transparent-small.png" alt="BT Logo" class="header-image">
-        </a>
-        @if(router.url === '/' || router.url === '/renuncias-fiscais'){
-            <nav class="report-nav">
-                <button routerLink="/estados" class="report-button"
-                    (mouseover)="onMouseOverStateButton()" (mouseout)="onMouseOutStateButton()">
-                    <img [src]="federalEntityImage()" alt="Estado" id="state-image">
-                    <span id="state-name">{{isEstadoHovered() ? 'Selecionar outro' : federalEntityName()}}</span>
-                </button>
-                <button routerLink="/" class="report-button report-button-text-center" [class.active]="activeReport() === reportType.Simplificado && router.url === '/'"
-                (click)="setActiveReport(reportType.Simplificado)">
-                    Resumo dos Gastos
-                </button>
-                <button routerLink="/" class="report-button report-button-text-center" [class.active]="activeReport() === reportType.Completo && router.url === '/'"
-                    (click)="setActiveReport(reportType.Completo)">
-                    Gastos Detalhados
-                </button>
-                
-                @if (federalEntityId() === '1') {
-                    <button routerLink="/renuncias-fiscais" class="report-button report-button-text-center" [class.active]="router.url === '/renuncias-fiscais'">
-                        Renúncias Fiscais
-                    </button>
-                }
-            </nav>
-        }
-    </div>
+  <div class="header-content">
+    <a routerLink="/">
+      <img src="/images/white-transparent-small.png" alt="BT Logo" class="header-image" />
+    </a>
+    
+    @if(router.url === '/' || router.url === '/renuncias-fiscais'){
+    <nav class="report-nav">
+      <button
+        routerLink="/estados"
+        class="report-button"
+        (mouseover)="onMouseOverStateButton()"
+        (focus)="onMouseOverStateButton()"
+        (mouseout)="onMouseOutStateButton()"
+        (blur)="onMouseOutStateButton()"
+      >
+        <img [src]="federalEntityImage()" alt="Estado" id="state-image" />
+        <span id="state-name">{{
+          isEstadoHovered() ? 'Selecionar outro' : federalEntityName()
+        }}</span>
+      </button>
+
+      <button
+        routerLink="/"
+        class="report-button report-button-text-center"
+        [class.active]="activeReport() === reportType.Simplificado && router.url === '/'"
+        (click)="setActiveReport(reportType.Simplificado)"
+      >
+        Resumo dos Gastos
+      </button>
+      
+      <button
+        routerLink="/"
+        class="report-button report-button-text-center"
+        [class.active]="activeReport() === reportType.Completo && router.url === '/'"
+        (click)="setActiveReport(reportType.Completo)"
+      >
+        Gastos Detalhados
+      </button>
+
+      @if (federalEntityId() === '1') {
+        <button
+          routerLink="/renuncias-fiscais"
+          class="report-button report-button-text-center"
+          [class.active]="router.url === '/renuncias-fiscais'"
+        >
+          Renúncias Fiscais
+        </button>
+      }
+    </nav>
+    }
+  </div>
 </header>

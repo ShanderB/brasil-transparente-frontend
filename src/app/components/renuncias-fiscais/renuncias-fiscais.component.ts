@@ -8,7 +8,7 @@ import { RenunciaFiscal } from '../../models/renuncia-fiscal.model';
 @Component({
   selector: 'app-renuncias-fiscais',
   standalone: true,
-  imports: [CommonModule, VoltarInicioComponent],
+  imports: [CommonModule],
   templateUrl: './renuncias-fiscais.component.html',
   styleUrl: './renuncias-fiscais.component.scss'
 })
