@@ -4,11 +4,12 @@ import { VoltarInicioComponent } from '../voltar-inicio/voltar-inicio.component'
 import { ApiService } from '../../services/api/api.service';
 import { DataService } from '../../services/data/data.service';
 import { RenunciaFiscal } from '../../models/renuncia-fiscal.model';
+import { CarregandoDados } from 'app/carregando-dados/carregando-dados';
 
 @Component({
   selector: 'app-renuncias-fiscais',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, CarregandoDados],
   templateUrl: './renuncias-fiscais.component.html',
   styleUrl: './renuncias-fiscais.component.scss'
 })
