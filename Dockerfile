@@ -10,8 +10,11 @@ RUN npm ci
 
 # Copia todos os arquivos do projeto
 COPY . .
-RUN npm run build
 
+# Constrói a aplicação Angular
+RUN npm run build
+  
+# Production stage
 FROM nginx:stable-alpine
 
 # Copia os arquivos construídos para o diretório padrão do Nginx
