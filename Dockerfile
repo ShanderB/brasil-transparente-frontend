@@ -13,7 +13,7 @@ COPY . .
 
 # Constrói a aplicação Angular
 RUN npm run build
-  
+
 # Production stage
 FROM nginx:stable-alpine
 
