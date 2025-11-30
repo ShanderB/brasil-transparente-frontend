@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       ref:
-        description: 'Commit SHA or branch (default: HEAD)'
+        description: 'Commit SHA or branch to deploy (default: develop)'
         required: false
         default: 'develop'
 
@@ -14,33 +14,20 @@ jobs:
     environment: test
 
     steps:
+      # Checkout do código da ref selecionada
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.inputs.ref }}
 
+      # Node (caso seja necessário para alguma futura etapa)
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '22.14.0'
 
-      - name: Dump secrets debug
-        env:
-          GCP_PROJECT: ${{ secrets.GCP_PROJECT }}
-          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
-        run: |
-          echo "GCP_PROJECT length: ${#GCP_PROJECT}"
-          echo "GCP_SA_KEY length: ${#GCP_SA_KEY}"
-
-      - name: Write SA key
-        env:
-          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
-        run: |
-          echo "${GCP_SA_KEY}" > /tmp/key.json
-          head -n1 /tmp/key.json
-          tail -n1 /tmp/key.json
-
-      - name: Install gcloud CLI
+      # Instalação do Google Cloud SDK no runner
+      - name: Install Google Cloud SDK
         run: |
           sudo apt-get update -y
           sudo apt-get install -y apt-transport-https ca-certificates gnupg
@@ -49,8 +36,28 @@ jobs:
           sudo apt-get update -y
           sudo apt-get install -y google-cloud-sdk
 
+      # Ativação explícita da Service Account com a key vinda do secret
       - name: Activate service account
+        env:
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
         run: |
+          echo "${GCP_SA_KEY}" > /tmp/key.json
           gcloud auth activate-service-account --key-file=/tmp/key.json --project="${{ secrets.GCP_PROJECT }}"
           gcloud auth list
           gcloud config list
+
+      # Build no Cloud Build
+      - name: Build Docker image
+        run: |
+          gcloud builds submit \
+            --project="${{ secrets.GCP_PROJECT }}" \
+            --tag gcr.io/${{ secrets.GCP_PROJECT }}/frontend:${{ github.sha }}
+
+      # Deploy no Cloud Run
+      - name: Deploy to Cloud Run
+        run: |
+          gcloud run deploy frontend-test \
+            --image gcr.io/${{ secrets.GCP_PROJECT }}/frontend:${{ github.sha }} \
+            --region="${{ secrets.REGION }}" \
+            --platform=managed \
+            --allow-unauthenticated
