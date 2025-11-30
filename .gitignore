@@ -44,5 +44,5 @@ testem.log
 Thumbs.db
 
 # Docker
-Dockerfile
-docker-compose.yml
+!Dockerfile
+!docker-compose.yml
