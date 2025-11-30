@@ -1,0 +1,47 @@
+name: Deploy to Test Environment
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Commit SHA or branch (default: HEAD)'
+        required: false
+        default: ''
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: test
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.ref || github.sha }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.14.0'
+
+      - name: Auth GCP
+        uses: google-github-actions/setup-gcloud@v1
+        with:
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          project_id: ${{ secrets.GCP_PROJECT }}
+
+      - name: Ensure gcloud project is set
+        run: |
+          gcloud config set project ${{ secrets.GCP_PROJECT }}
+
+      - name: Build Docker image
+        run: |
+          gcloud builds submit \
+            --project=${{ secrets.GCP_PROJECT }} \
+            --tag gcr.io/${{ secrets.GCP_PROJECT }}/frontend:${{ github.sha }}
+
+      - name: Deploy to Cloud Run
+        run: |
+          gcloud run deploy frontend-test \
+            --image gcr.io/${{ secrets.GCP_PROJECT }}/frontend:${{ github.sha }} \
+            --region ${{ secrets.REGION }} \
+            --platform managed \
+            --allow-unauthenticated
