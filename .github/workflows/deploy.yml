@@ -1,35 +1,21 @@
-name: CICD Pipeline
+name: Deploy to Test Environment
 
 on:
-  push:
-    branches:
-      - develop
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Commit SHA or branch (default: HEAD)'
+        required: false
+        default: ''
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22.14.0'
-
-      - name: Install deps
-        run: npm ci
-
-      - name: Build Angular
-        run: npm run build --if-present
-
-  deploy-test:
-    runs-on: ubuntu-latest
-    needs: build
     environment: test
-    if: github.ref == 'refs/heads/develop'
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.ref || github.sha }}
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -42,9 +28,14 @@ jobs:
           service_account_key: ${{ secrets.GCP_SA_KEY }}
           project_id: ${{ secrets.GCP_PROJECT }}
 
+      - name: Ensure gcloud project is set
+        run: |
+          gcloud config set project ${{ secrets.GCP_PROJECT }}
+
       - name: Build Docker image
         run: |
           gcloud builds submit \
+            --project=${{ secrets.GCP_PROJECT }} \
             --tag gcr.io/${{ secrets.GCP_PROJECT }}/frontend:${{ github.sha }}
 
       - name: Deploy to Cloud Run
