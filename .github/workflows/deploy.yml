@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       ref:
-        description: 'Commit SHA or branch (default: HEAD)'
+        description: "Commit SHA or branch (default: HEAD)"
         required: false
-        default: ''
+        default: ""
 
 jobs:
   deploy:
@@ -20,12 +20,12 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '22.14.0'
+          node-version: "22.14.0"
 
       - name: Debug: dump secret sizes
         run: |
           echo "GCP_PROJECT length: ${#GCP_PROJECT}" || true
-          echo "GCP_SA_KEY length: $(echo -n "$GCP_SA_KEY" | wc -c)" || true
+          echo "GCP_SA_KEY length: $(echo -n \"${GCP_SA_KEY}\" | wc -c)" || true
         env:
           GCP_PROJECT: ${{ secrets.GCP_PROJECT }}
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
@@ -33,7 +33,7 @@ jobs:
       - name: Write SA key to file
         run: |
           mkdir -p /tmp/gcloud
-          printf "%s" "$GCP_SA_KEY" > /tmp/gcloud/key.json
+          printf "%s" "${GCP_SA_KEY}" > /tmp/gcloud/key.json
           echo "Wrote key, showing head/tail (not full key):"
           head -n2 /tmp/gcloud/key.json || true
           tail -n2 /tmp/gcloud/key.json || true
