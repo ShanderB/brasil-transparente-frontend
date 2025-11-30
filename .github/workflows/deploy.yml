@@ -46,6 +46,14 @@ jobs:
           gcloud auth list
           gcloud config list
 
+      # Debug do workspace
+      - name: Debug workspace files
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Listing files:"
+          ls -la
+
       # Build no Cloud Build
       - name: Build Docker image
         run: |
