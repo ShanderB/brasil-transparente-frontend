@@ -16,7 +16,6 @@
   background-size: 200% 100%;
   animation: skeleton-loading 1.2s infinite linear;
   margin-bottom: 1rem;
-  max-width: 90vw;
 }
 
 .skeleton-bar {
@@ -27,9 +26,7 @@
   background-size: 200% 100%;
   animation: skeleton-loading 1.2s infinite linear;
   margin-bottom: 0.5rem;
-  max-width: 85vw;
   &.short {
-    width: 11rem;
     height: 5rem;
   }
 }
