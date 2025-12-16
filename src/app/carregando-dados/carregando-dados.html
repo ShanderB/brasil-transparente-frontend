@@ -1,4 +1,7 @@
 <div class="loader-container">
-    <div class="loader-spinner"></div>
-    <p>Carregando dados...</p>
-  </div>
+  <div class="skeleton-total"></div>
+  @for (i of range(skeletonCount); track i) {
+  <div class="skeleton-bar"></div>
+  }
+  <div class="skeleton-bar short"></div>
+</div>
