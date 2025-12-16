@@ -1,12 +1,15 @@
+substitutions:
+  _BUILD_ENV: testing
+
 steps:
-  - name: 'gcr.io/cloud-builders/docker'
+  - name: gcr.io/cloud-builders/docker
     args:
-      [
-        'build',
-        '--build-arg', 'BUILD_ENV=${_BUILD_ENV}',
-        '-t', 'gcr.io/$PROJECT_ID/frontend:$SHORT_SHA',
-        '.'
-      ]
+      - build
+      - --build-arg
+      - BUILD_ENV=${_BUILD_ENV}
+      - -t
+      - gcr.io/$PROJECT_ID/frontend:$SHORT_SHA
+      - .
 
 images:
-  - 'gcr.io/$PROJECT_ID/frontend:$SHORT_SHA'
+  - gcr.io/$PROJECT_ID/frontend:$SHORT_SHA
