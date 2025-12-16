@@ -1,4 +1,4 @@
-name: CD Pipeline
+name: Deploy Pipeline - Test
 
 on:
   workflow_dispatch:
@@ -38,12 +38,15 @@ jobs:
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
         run: |
           echo "${GCP_SA_KEY}" > /tmp/key.json
-          gcloud auth activate-service-account --key-file=/tmp/key.json --project="${{ secrets.GCP_PROJECT }}"
+          gcloud auth activate-service-account \
+            --key-file=/tmp/key.json \
+            --project="${{ secrets.GCP_PROJECT }}"
 
-      - name: Build Docker image
+      - name: Build Docker image (testing)
         run: |
           gcloud builds submit \
             --project="${{ secrets.GCP_PROJECT }}" \
+            --build-arg BUILD_ENV=testing \
             --tag gcr.io/${{ secrets.GCP_PROJECT }}/frontend:${{ github.sha }}
 
       - name: Deploy to Cloud Run
