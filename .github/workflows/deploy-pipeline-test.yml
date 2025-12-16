@@ -48,7 +48,6 @@ jobs:
             --project="${{ secrets.GCP_PROJECT }}" \
             --config cloudbuild.yaml \
             --substitutions=_BUILD_ENV=testing \
-            --tag gcr.io/${{ secrets.GCP_PROJECT }}/frontend:${{ github.sha }}
 
       - name: Deploy to Cloud Run
         run: |
