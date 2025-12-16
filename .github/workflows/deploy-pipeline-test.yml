@@ -46,7 +46,7 @@ jobs:
         run: |
           gcloud builds submit \
             --project="${{ secrets.GCP_PROJECT }}" \
-            --build-arg BUILD_ENV=testing \
+            --substitutions=_BUILD_ENV=testing \
             --tag gcr.io/${{ secrets.GCP_PROJECT }}/frontend:${{ github.sha }}
 
       - name: Deploy to Cloud Run
