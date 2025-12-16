@@ -12,7 +12,9 @@ RUN npm ci
 COPY . .
 
 # Constrói a aplicação Angular
-RUN npm run build
+ARG BUILD_ENV=prod
+
+RUN npm run build:${BUILD_ENV}
 
 # Production stage
 FROM nginx:stable-alpine
