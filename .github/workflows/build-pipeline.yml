@@ -1,0 +1,29 @@
+name: Build Pipeline
+
+on:
+  push:
+    branches:
+      - develop
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.14.0'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Angular (prod)
+        run: npm run build:prod
+
+      - name: Build Angular (testing)
+        run: npm run build:testing
