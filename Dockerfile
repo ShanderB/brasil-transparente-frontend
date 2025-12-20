@@ -12,7 +12,7 @@ RUN npm ci
 COPY . .
 
 # Constrói a aplicação Angular
-ARG BUILD_ENV=prod
+ARG BUILD_ENV=testing
 
 RUN npm run build:${BUILD_ENV}
 

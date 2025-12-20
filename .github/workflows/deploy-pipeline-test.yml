@@ -24,6 +24,9 @@ jobs:
         with:
           node-version: '22.14.0'
 
+      - name: Define image tag
+        run: echo "IMAGE_TAG=${GITHUB_SHA::7}" >> $GITHUB_ENV
+
       - name: Install Google Cloud SDK
         run: |
           sudo apt-get update -y
@@ -46,13 +49,13 @@ jobs:
         run: |
           gcloud builds submit \
             --project="${{ secrets.GCP_PROJECT }}" \
-            --build-arg BUILD_ENV=testing \
-            --tag gcr.io/${{ secrets.GCP_PROJECT }}/frontend:${{ github.sha }}
+            --config cloudbuild.yaml \
+            --substitutions=_BUILD_ENV=testing,_TAG=$IMAGE_TAG
 
       - name: Deploy to Cloud Run
         run: |
           gcloud run deploy brasil-transparente-frontend-test \
-            --image gcr.io/${{ secrets.GCP_PROJECT }}/frontend:${{ github.sha }} \
+            --image gcr.io/${{ secrets.GCP_PROJECT }}/frontend:$IMAGE_TAG \
             --region="${{ secrets.REGION }}" \
             --platform=managed \
             --allow-unauthenticated
