@@ -1,15 +1,16 @@
 substitutions:
   _BUILD_ENV: testing
+  _TAG: latest
 
 steps:
 - name: gcr.io/cloud-builders/docker
   args:
-  - build
-  - --build-arg
-  - BUILD_ENV=${_BUILD_ENV}
-  - -t
-  - gcr.io/$PROJECT_ID/frontend:$SHORT_SHA
-  - .
+    - build
+    - --build-arg
+    - BUILD_ENV=${_BUILD_ENV}
+    - -t
+    - gcr.io/$PROJECT_ID/frontend:${_TAG}
+    - .
 
 images:
-- gcr.io/$PROJECT_ID/frontend:$SHORT_SHA
+- gcr.io/$PROJECT_ID/frontend:${_TAG}
