@@ -1,7 +1,9 @@
 <div class="loader-container">
   <div class="skeleton-total"></div>
-  @for (i of range(skeletonCount); track i) {
+  @for (i of range(skeletonCount()); track i) {
   <div class="skeleton-bar"></div>
   }
-  <div class="skeleton-bar short"></div>
+  @if(activeReport() === reportTypeWithShort){
+    <div class="skeleton-bar short"></div>
+  }
 </div>
