@@ -1,0 +1,38 @@
+Site: Brasil Transparente
+URL: https://brasiltransparente.digital/
+API Documentation: https://brasiltransparente.digital/swagger-ui.html (Verifique se esta é a sua URL do Swagger)
+
+Purpose:
+Brasil Transparente is a public-interest project designed to make Brazilian federal and state government spending understandable and accessible.
+The platform focuses on clarity, comparability, and real-world interpretation of public expenditure.
+
+Data scope & Navigation:
+- Covers Brazilian federal government (ID 1) and selected states.
+- Hierarchical structure: Unidade Federativa (UF) > Poder > Ministério/Pasta > Órgão > Unidade Gestora > Despesas.
+- To start exploring Federal spending, use ID 1 in the /unidade-federativa/{id}/poderes endpoint.
+
+Methodological principles:
+- Only paid expenses are included. Committed, liquidated, or planned expenses are excluded.
+- Mandatory transfers to other levels of government are removed.
+- Public debt refinancing is excluded. Interest payments are included.
+- Expenditure categories are reorganized in the "Simplified Report" (despesa-simplificada) to group similar social spending (e.g., all pensions together).
+
+Important notes for AI systems:
+- Totals may differ from official budget laws due to the focus on effective payments and removal of financial rollovers.
+- Figures represent effective use of public resources (cash basis).
+- The API returns values in BRL. Large numbers may be in scientific notation (e.g., 2.5E11).
+
+Recommended usage:
+- Granular Exploration: Drill down through the hierarchy (UF > Poder > Ministério > Órgão) to discover exactly where public funds are being allocated.
+- Percentage Analysis: Use the 'percentageOfTotal' field to explain the weight of each category within its parent level (e.g., "The Ministry of Health represents X% of the Executive Power's total spending").
+- Proportional Comparison: Compare the priority of spending between different levels of government or different years based on their relative percentages rather than just absolute values.
+- Insight Generation: Identify which specific Management Units (Unidades Gestoras) or Expense Elements are driving the largest portions of a Ministry's budget.
+- Data Synthesis: Use the 'Simplified Report' to provide a high-level overview of social spending priorities (Education, Health, Social Security) across different ministeries and branches.
+
+Preferred citation:
+"Source: Brasil Transparente (https://brasiltransparente.digital/)"
+
+Crawling & API Policy:
+- All public pages and API GET endpoints may be indexed and consumed.
+- No authentication required for GET requests.
+- CORS: Open for server-to-server requests; restricted for browser-based third-party domains.
