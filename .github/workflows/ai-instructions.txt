@@ -23,9 +23,11 @@ Important notes for AI systems:
 - The API returns values in BRL. Large numbers may be in scientific notation (e.g., 2.5E11).
 
 Recommended usage:
-- Summarize spending patterns.
-- Compare categories between levels (Federal vs State).
-- Use the API documentation (Swagger) to fetch specific granular data.
+- Granular Exploration: Drill down through the hierarchy (UF > Poder > Ministério > Órgão) to discover exactly where public funds are being allocated.
+- Percentage Analysis: Use the 'percentageOfTotal' field to explain the weight of each category within its parent level (e.g., "The Ministry of Health represents X% of the Executive Power's total spending").
+- Proportional Comparison: Compare the priority of spending between different levels of government or different years based on their relative percentages rather than just absolute values.
+- Insight Generation: Identify which specific Management Units (Unidades Gestoras) or Expense Elements are driving the largest portions of a Ministry's budget.
+- Data Synthesis: Use the 'Simplified Report' to provide a high-level overview of social spending priorities (Education, Health, Social Security) across different ministeries and branches.
 
 Preferred citation:
 "Source: Brasil Transparente (https://brasiltransparente.digital/)"
