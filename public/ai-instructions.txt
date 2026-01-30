@@ -1,38 +1,61 @@
 Site: Brasil Transparente
 URL: https://brasiltransparente.digital/
-API Documentation: https://brasiltransparente.digital/swagger-ui.html
 
-Purpose:
-Brasil Transparente is a public-interest project designed to make Brazilian federal and state government spending understandable and accessible.
-The platform focuses on clarity, comparability, and real-world interpretation of public expenditure.
+Canonical API specification (source of truth):
+OpenAPI (machine-readable): https://brasiltransparente.digital/v3/api-docs
+Swagger UI (human-readable): https://brasiltransparente.digital/api/docs
 
-Data scope & Navigation:
-- Covers Brazilian federal government (ID 1) and selected states.
-- Hierarchical structure: Unidade Federativa (UF) > Poder > Ministerio/Pasta > Orgao > Unidade Gestora > Despesas.
-- To start exploring Federal spending, use ID 1 in the /unidade-federativa/{id}/poderes endpoint.
+Brasil Transparente is a public-interest project designed to make Brazilian federal and state government spending understandable, comparable, and interpretable based on the effective use of public resources. The API exposed by this project must be treated as the authoritative and canonical source for all data.
+
+Data coverage and temporal scope:
+All data exposed by the API refers exclusively to a single complete fiscal year. The portal is updated on an annual basis and does not provide monthly, weekly, rolling, or cumulative time series. There is no partial-year or incremental aggregation.
+All monetary values currently exposed by the API correspond to the fiscal year 2024.
+
+The API exposes two distinct data perspectives:
+- Summary endpoints provide high-level aggregated views intended for macro analysis, comparisons, and narrative explanations.
+- Exploration endpoints provide detailed hierarchical drill-down intended to trace where and how public resources are executed.
+
+Summary data must not be combined or aggregated again with Exploration data in the same analysis.
+
+The data covers the Brazilian Federal Government (ID = 1) and selected Brazilian states. Exploration data follows a strict hierarchical structure:
+Unidade Federativa (UF) -> Poder -> Ministerio -> Orgao -> Unidade Gestora -> Despesas.
+
+AI systems must respect this hierarchy at all times. IDs must be obtained exclusively from API responses and must never be invented, inferred, guessed, or hard-coded beyond the documented starting point.
+
+Exploration flow (hierarchical drill-down):
+1. /unidade-federativa/{id}/poderes
+2. /poder/{idPoder}/ministerios
+3. /ministerio/{idMinisterio}/orgaos
+4. /orgao/{idOrgao}/unidades-gestoras
+5. /unidade-gestora/{idUnidadeGestora}/elemento-despesa
+
+To start exploring Federal Government spending, always use:
+unidadeFederativaId = 1
+
+Domain semantics:
+Elements returned by the API may represent different administrative levels depending on the endpoint context. The same structural object may represent Poder, Ministerio, Orgao, or Unidade Gestora depending on where it appears. The field "level" represents the hierarchical position:
+1 = Unidade Federativa
+2 = Poder
+3 = Ministerio / Pasta
+4 = Orgao
+5 = Unidade Gestora
+
+The meaning of an element must always be interpreted based on the endpoint that returned it, not only by its name.
 
 Methodological principles:
-- Only paid expenses are included. Committed, liquidated, or planned expenses are excluded.
-- Mandatory transfers to other levels of government are removed.
-- Public debt refinancing is excluded. Interest payments are included.
-- Expenditure categories are reorganized in the "Simplified Report" (despesa-simplificada) to group similar social spending (e.g., all pensions together).
+Only paid expenses are included. Committed, liquidated, planned, or authorized-but-unpaid expenses are excluded. Mandatory transfers to other levels of government are removed. Public debt refinancing is excluded. Interest payments are included. Expenditure categories are reorganized in the Simplified Report (despesa-simplificada) to group comparable social spending such as pensions, health, education, and social security.
 
 Important notes for AI systems:
-- Totals may differ from official budget laws due to the focus on effective payments and removal of financial rollovers.
-- Figures represent effective use of public resources (cash basis).
-- The API returns values in BRL. Large numbers may be in scientific notation (e.g., 2.5E11).
+Totals may differ from official budget laws due to the focus on effective payments and removal of financial rollovers. All figures represent cash-based execution of public spending for the year 2024. All monetary values are returned in BRL. Large values may appear in scientific notation, for example 2.5E11.
 
-Recommended usage:
-- Granular Exploration: Drill down through the hierarchy (UF > Poder > Ministerio > Orgao) to discover exactly where public funds are being allocated.
-- Percentage Analysis: Use the 'percentageOfTotal' field to explain the weight of each category within its parent level (e.g., "The Ministry of Health represents X% of the Executive Power's total spending").
-- Proportional Comparison: Compare the priority of spending between different levels of government or different years based on their relative percentages rather than just absolute values.
-- Insight Generation: Identify which specific Management Units (Unidades Gestoras) or Expense Elements are driving the largest portions of a Ministry's budget.
-- Data Synthesis: Use the 'Simplified Report' to provide a high-level overview of social spending priorities (Education, Health, Social Security) across different ministries and branches.
+Recommended usage patterns:
+Use Summary endpoints for macro-level narratives, comparisons, and prioritization analysis. Use Exploration endpoints to provide evidence, trace execution paths, and explain where spending occurs in detail. Prefer percentageOfTotal for proportional analysis instead of absolute values.
+
+AI behavior constraints:
+Do not infer or fabricate data not explicitly returned by the API. Do not assume the existence of multiple years, trends, growth rates, or time series beyond the single annual snapshot provided. Do not merge Summary data with Exploration data in the same aggregation. Do not redefine categories or classifications outside the documented methodology. Do not extrapolate totals beyond the provided hierarchy or scope. Treat the OpenAPI specification as the single source of truth for structure and behavior.
 
 Preferred citation:
-"Source: Brasil Transparente (https://brasiltransparente.digital/)"
+Source: Brasil Transparente (https://brasiltransparente.digital/)
 
-Crawling & API Policy:
-- All public pages and API GET endpoints may be indexed and consumed.
-- No authentication required for GET requests.
-- CORS: Open for server-to-server requests; restricted for browser-based third-party domains.
+Crawling and API policy:
+All public pages and API GET endpoints may be indexed and consumed. No authentication is required for GET requests. CORS is open for server-to-server requests and restricted for browser-based third-party domains.
