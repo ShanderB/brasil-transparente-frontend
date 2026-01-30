@@ -7,19 +7,6 @@
     @if(router.url === '/'){
     <nav class="report-nav">
       <button
-        routerLink="/estados"
-        class="report-button"
-        (mouseover)="onMouseOverStateButton()"
-        (focus)="onMouseOverStateButton()"
-        (mouseout)="onMouseOutStateButton()"
-        (blur)="onMouseOutStateButton()"
-      >
-        <img [src]="federalEntityImage()" alt="Estado" id="state-image" />
-        <span id="state-name">{{
-          isEstadoHovered() ? 'Selecionar outro' : federalEntityName()
-        }}</span>
-      </button>
-      <button
         class="report-button report-button-text-center"
         [class.active]="activeReport() === reportType.Simplificado"
         (click)="setActiveReport(reportType.Simplificado)"
