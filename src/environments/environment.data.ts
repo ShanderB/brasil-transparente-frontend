@@ -3,38 +3,6 @@ import { OrigemPreposicao } from "app/models/origem-fonte-dados.model";
 export const environmentData = {
   pixKey: 'brasiltransparente@pm.me',
   contactEmail: 'brasiltransparente@pm.me',
-  estados: [
-    { nome: 'União Federal', imagem: 'images/estados/uniao.svg', id: 1, ativo: true },
-    { nome: 'Rio Grande do Sul', imagem: 'images/estados/rio_grande_do_sul.svg', id: 2, ativo: true },
-    { nome: 'Bahia', imagem: 'images/estados/bahia.svg', id: 3, ativo: true },
-    { nome: 'Amazonas', imagem: 'images/estados/amazonas.svg', id: 4, ativo: true },
-    { nome: 'São Paulo', imagem: 'images/estados/sao_paulo.svg', id: 5, ativo: true },
-    { nome: 'Paraíba', imagem: 'images/estados/paraiba.svg', id: 6, ativo: true },
-    
-    // Alterar os IDs para os corretos quando os dados estiverem disponíveis
-    { nome: 'Acre', imagem: 'images/estados/acre.svg', id: 7, ativo: false },
-    { nome: 'Alagoas', imagem: 'images/estados/alagoas.svg', id: 8, ativo: false },
-    { nome: 'Amapá', imagem: 'images/estados/amapa.svg', id: 9, ativo: false },
-    { nome: 'Ceará', imagem: 'images/estados/ceara.svg', id: 10, ativo: false },
-    { nome: 'Distrito Federal', imagem: 'images/estados/distrito_federal.svg', id: 11, ativo: false },
-    { nome: 'Espírito Santo', imagem: 'images/estados/espirito_santo.svg', id: 12, ativo: false },
-    { nome: 'Goiás', imagem: 'images/estados/goias.svg', id: 13, ativo: false },
-    { nome: 'Maranhão', imagem: 'images/estados/maranhao.svg', id: 14, ativo: false },
-    { nome: 'Mato Grosso', imagem: 'images/estados/mato_grosso.svg', id: 15, ativo: false },
-    { nome: 'Mato Grosso do Sul', imagem: 'images/estados/mato_grosso_do_sul.svg', id: 16, ativo: false },
-    { nome: 'Minas Gerais', imagem: 'images/estados/minas_gerais.svg', id: 17, ativo: false },
-    { nome: 'Pará', imagem: 'images/estados/para.svg', id: 18, ativo: false },
-    { nome: 'Paraná', imagem: 'images/estados/parana.svg', id: 19, ativo: false },
-    { nome: 'Pernambuco', imagem: 'images/estados/pernambuco.svg', id: 20, ativo: false },
-    { nome: 'Piauí', imagem: 'images/estados/piaui.svg', id: 21, ativo: false },
-    { nome: 'Rio de Janeiro', imagem: 'images/estados/rio_de_janeiro.svg', id: 22, ativo: false },
-    { nome: 'Rio Grande do Norte', imagem: 'images/estados/rio_grande_do_norte.svg', id: 23, ativo: false },
-    { nome: 'Rondônia', imagem: 'images/estados/rondonia.svg', id: 24, ativo: false },
-    { nome: 'Roraima', imagem: 'images/estados/roraima.svg', id: 25, ativo: false },
-    { nome: 'Santa Catarina', imagem: 'images/estados/santa_catarina.svg', id: 26, ativo: false },
-    { nome: 'Sergipe', imagem: 'images/estados/sergipe.svg', id: 27, ativo: false },
-    { nome: 'Tocantins', imagem: 'images/estados/tocantins.svg', id: 28, ativo: false },
-  ],
   fontesDadosOrigem: [
     {
       id: 'executivo',
@@ -91,17 +59,6 @@ export const environmentData = {
         { nome: 'Ministério Público Militar (MPM)', url: 'https://transparencia.mpm.mp.br/execucao-orcamentaria-e-financeira/?ano=2024', preposicao: OrigemPreposicao.Do },
         { nome: 'Ministério Público do Distrito Federal e Territórios (MPDFT)', url: 'https://www.mpdft.mp.br/transparencia/index.php?item=despesas&resp=DETALHAMENTO_DAS_DESPESAS', preposicao: OrigemPreposicao.Do },
         { nome: 'Escola Superior do Ministério Público da União (ESMPU)', url: 'https://escola.mpu.mp.br/transparencia/portal-da-transparencia/execucao-orcamentaria-e-financeira/detalhamento-das-despesas', preposicao: OrigemPreposicao.Da }
-      ]
-    },
-    {
-      id: 'estados',
-      titulo: 'Estados',
-      descricao: '',
-      fontes: [
-        { nome: 'Amazonas', url: 'https://www.transparenciafiscal.am.gov.br/transpprd/mnt/dadosAbertos.do', preposicao: OrigemPreposicao.Do },
-        { nome: 'Bahia', url: 'https://dados.gov.br/dados/conjuntos-dados/despesas2', preposicao: OrigemPreposicao.Da },
-        { nome: 'Rio Grande do Sul', url: 'https://www.transparencia.rs.gov.br/dados-abertos/dados-transparencia-rs/dados/', preposicao: OrigemPreposicao.Do },
-        { nome: 'São Paulo', url: 'https://www.fazenda.sp.gov.br/SigeoLei131/Paginas/FlexConsDespesa.aspx', preposicao: OrigemPreposicao.De }
       ]
     }
   ]

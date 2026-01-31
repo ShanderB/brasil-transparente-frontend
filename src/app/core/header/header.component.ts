@@ -18,7 +18,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   federalEntityName = signal('União Federal');
   federalEntityImage = signal('');
-  isEstadoHovered = signal(false);
   activeReport = this.storageService.activeReport;
 
   reportType = ReportType;
@@ -45,13 +44,5 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   setActiveReport(report: ReportType): void {
     this.activeReport.set(report);
-  }
-
-  onMouseOverStateButton(): void {
-    this.isEstadoHovered.set(true);
-  }
-
-  onMouseOutStateButton(): void {
-    this.isEstadoHovered.set(false);
   }
 }
