@@ -1,7 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ReportType } from '../../models/tipos-relatorios.model';
-import { environmentData } from '../../../environments/environment.data';
 import { environment } from 'environments/environment.development';
 
 @Injectable({
@@ -10,12 +9,15 @@ import { environment } from 'environments/environment.development';
 export class StorageService {
   private static readonly SHOULD_CACHE = environment.shouldCache;
 
+  private static readonly DEFAULT_FEDERAL_ENTITY_IMAGE =
+    'images/estados/uniao.svg';
+
   // TODO alterar para signal
   private federalEntityNameSubject = new BehaviorSubject<string>(
     'União Federal'
   );
   private federalEntityImageSubject = new BehaviorSubject<string>(
-    environmentData.estados.find(e => e.id === 1)!.imagem
+    StorageService.DEFAULT_FEDERAL_ENTITY_IMAGE
   );
   private federalEntityIdSubject = new BehaviorSubject<string>('1');
 
