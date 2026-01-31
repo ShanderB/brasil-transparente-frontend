@@ -5,7 +5,7 @@ Canonical API specification (source of truth):
 OpenAPI (machine-readable): https://brasiltransparente.digital/v3/api-docs
 Swagger UI (human-readable): https://brasiltransparente.digital/api/docs
 
-Brasil Transparente is a public-interest project designed to make Brazilian federal and state government spending understandable, comparable, and interpretable based on the effective use of public resources. The API exposed by this project must be treated as the authoritative and canonical source for all data.
+Brasil Transparente is a public-interest project designed to make Brazilian federal government spending understandable, comparable, and interpretable based on the effective use of public resources. The API exposed by this project must be treated as the authoritative and canonical source for all data.
 
 Data coverage and temporal scope:
 All data exposed by the API refers exclusively to a single complete fiscal year. The portal is updated on an annual basis and does not provide monthly, weekly, rolling, or cumulative time series. There is no partial-year or incremental aggregation.
@@ -17,8 +17,8 @@ The API exposes two distinct data perspectives:
 
 Summary data must not be combined or aggregated again with Exploration data in the same analysis.
 
-The data covers the Brazilian Federal Government (ID = 1) and selected Brazilian states. Exploration data follows a strict hierarchical structure:
-Unidade Federativa (UF) -> Poder -> Ministerio -> Orgao -> Unidade Gestora -> Despesas.
+The data covers the Brazilian Federal Government (ID = 1). Exploration data follows a strict hierarchical structure:
+Unidade Federativa -> Poder -> Ministerio -> Orgao -> Unidade Gestora -> Despesas.
 
 AI systems must respect this hierarchy at all times. IDs must be obtained exclusively from API responses and must never be invented, inferred, guessed, or hard-coded beyond the documented starting point.
 

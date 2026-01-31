@@ -1,9 +1,9 @@
 /* Nível 1 (Poder) */
 
 footer {
-  background: linear-gradient(135deg, var(--azul-brasil), var(--verde-escuro));
+  background: linear-gradient(135deg, var(--home-hero-gradient-1), var(--home-hero-gradient-3));
   padding: 2em 1em;
-  color: white;
+  color: var(--text-primary);
   position: relative;
   margin-top: auto;
 }
@@ -17,9 +17,20 @@ footer {
 }
 
 .footer-section h3 {
-  color: var(--amarelo-ouro);
+  color: var(--azul-brasil);
   margin-bottom: 1em;
   font-size: 1.2rem;
+}
+
+.footer-logo {
+  text-align: left;
+  margin-bottom: 1em;
+}
+
+.footer-logo-image {
+  width: auto;
+  height: auto;
+  max-height: 75px;
 }
 
 .footer-links {
@@ -28,7 +39,7 @@ footer {
 }
 
 .footer-links a {
-  color: white;
+  color: var(--text-primary);
   text-decoration: none;
   transition: color 0.3s ease;
   display: block;
@@ -36,7 +47,7 @@ footer {
 }
 
 .footer-links a:hover {
-  color: var(--amarelo-ouro);
+  color: var(--azul-brasil);
   transform: translateX(5px);
 }
 
@@ -45,7 +56,7 @@ footer {
   margin-top: 2em;
   margin-bottom: -1em;
   padding-top: 1em;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--border-subtle);
 }
 
 .footer-section form,
@@ -67,18 +78,18 @@ footer {
 
 .donation-pix-icon {
   font-size: 1.5em;
-  color: #00b686;
+  color: var(--azul-brasil);
 }
 
 .donation-pix-key {
   font-weight: 600;
   font-size: 1em;
-  color: white;
+  color: var(--text-primary);
 }
 
 .donation-pix-copy-btn {
   margin-left: 8px;
-  background: #00b686;
+  background: var(--azul-brasil);
   color: white;
   border: none;
   border-radius: 5px;
@@ -90,12 +101,12 @@ footer {
 }
 
 .donation-pix-copy-btn:active {
-  background: #008e5a;
+  background: var(--brand-blue-800);
 }
 
 .donation-pix-note {
   font-size: 0.95em;
-  color: white;
+  color: var(--text-muted);
   margin-top: 6px;
 }
 
@@ -125,6 +136,10 @@ footer {
   .footer-section h3 {
     font-size: 1.15rem;
     text-align: center;
+  }
+
+  .footer-logo-image {
+    max-height: 65px;
   }
 
   .footer-section form,

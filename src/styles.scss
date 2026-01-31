@@ -1,10 +1,30 @@
 :root {
-  --background: #f8f9fa;
-  --text-primary: #2d3436;
+  --background: #eef2f7;
+  --surface: #ffffff;
+  --surface-muted: #f8fafc;
+  --text-primary: #111827;
+  --text-muted: #6b7280;
+  --border-subtle: rgba(17, 24, 39, 0.08);
   --azul-brasil: #002776;
   --amarelo-ouro: #ffdf00;
   --verde-escuro: #075213;
-  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --brand-blue-800: #001c57;
+  --brand-blue-600: #003399;
+  --brand-gold-600: #ffbf00;
+  --brand-green-700: #065c17;
+  --home-hero-base: #e7eef7;
+  --home-hero-gradient-1: #d6e2f3;
+  --home-hero-gradient-2: #e7eef7;
+  --home-hero-gradient-3: #f5f8fd;
+  --link: var(--azul-brasil);
+  --link-hover: var(--brand-blue-600);
+--chart-1: #eed200; /* slightly lighter than before */
+--chart-2: #f4d900;
+--chart-3: #ffdf00; /* reference */
+--chart-4: #ffe24d; /* unchanged */
+  --chart-5: #ced0d3;
+  --chart-muted: #9ca3af;
+  --card-shadow: 0 8px 18px rgba(17, 24, 39, 0.08);
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -15,7 +35,10 @@
 body {
   margin: 0;
   color: var(--text-primary);
-  background-color: var(--background);
+  background: radial-gradient(900px 420px at 50% -120px, rgba(0, 39, 118, 0.08) 0%, rgba(0, 39, 118, 0) 60%),
+    radial-gradient(900px 420px at 90% 10%, rgba(7, 82, 19, 0.10) 0%, rgba(7, 82, 19, 0) 58%),
+    radial-gradient(900px 420px at 10% 10%, rgba(255, 223, 0, 0.10) 0%, rgba(255, 223, 0, 0) 55%),
+    var(--background);
   line-height: 1.5;
 }
 
@@ -24,13 +47,17 @@ body {
   max-width: 800px;
   margin: 1.5em auto;
   padding: 2rem;
-  background: white;
+  background: var(--surface);
   border-radius: 0.75rem;
   box-shadow: var(--card-shadow);
 }
 
 a {
-  color: white;
+  color: var(--link);
+}
+
+a:hover {
+  color: var(--link-hover);
 }
 
 main {
@@ -56,12 +83,12 @@ h1 {
 }
 
 .text-heavy a {
-  color: #3498db;
+  color: var(--link);
   text-decoration: underline;
 }
 
 .text-heavy a:hover {
-  color: #2980b9;
+  color: var(--link-hover);
   text-decoration: none;
 }
 

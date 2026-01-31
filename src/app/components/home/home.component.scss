@@ -1,5 +1,5 @@
 .total-display {
-  background: white;
+  background: var(--surface);
   padding: 1.5rem;
   border-radius: 0.75rem;
   margin: 1rem 0;
@@ -11,7 +11,7 @@
 
 .total-display h2 {
   font-size: 1.25rem;
-  color: #666;
+  color: var(--text-muted);
   margin: 0 0 0.5rem 0;
   line-height: 1.4;
 }

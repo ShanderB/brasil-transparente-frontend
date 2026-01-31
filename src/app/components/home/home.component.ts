@@ -107,8 +107,14 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   getBarColor(level: number): string {
-    const colors = ['#3db6f2', '#5cbef3', '#7fcdf4', '#a1dbf3', '#bbbbb8'];
-    return colors[level] ?? '#3db6f2';
+    const colors = [
+      'var(--chart-1)',
+      'var(--chart-2)',
+      'var(--chart-3)',
+      'var(--chart-4)',
+      'var(--chart-5)'
+    ];
+    return colors[level] ?? 'var(--chart-1)';
   }
 
   formatLargeCurrency(value: number): string {

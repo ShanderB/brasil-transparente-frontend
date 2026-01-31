@@ -4,7 +4,7 @@
   border-radius: 8px;
   display: flex;
   align-items: center;
-  color: black;
+  color: var(--text-primary);
   padding-left: 10px;
   font-weight: bold;
   animation: fadeInScale 0.5s ease-out forwards;
@@ -36,7 +36,7 @@
     margin-left: 0;
     border-left: none;
     padding-left: 0;
-    border-top: 2px solid #eee;
+    border-top: 2px solid var(--border-subtle);
     padding-top: 10px;
     margin-top: 10px;
   }
@@ -51,7 +51,7 @@
 }
 
 .bar-container {
-  background: white;
+  background: var(--surface);
   border-radius: 0.75rem;
   margin: 1rem 0;
   padding: 1rem;
@@ -87,7 +87,7 @@
 
 /* Nível 1 (Poder) */
 .bar-container > .bar {
-  background-color: #3dc7e9;
+  background-color: var(--chart-1);
 }
 
 .bar-container.fade-out {
