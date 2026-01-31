@@ -14,12 +14,6 @@
   </url>
 
   <url>
-    <loc>https://brasiltransparente.digital/estados</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <url>
     <loc>https://brasiltransparente.digital/metodologia</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
