@@ -31,8 +31,6 @@ Configurar o arquivo `environment.ts` localizado em `src\environments\environmen
 apiUrl: 'URL_DA_API'
 ```
 
-Atualmente o projeto não está utilizando proxy do angular (foi feito mas removido). Para rodar, é necessário acessar o arquivo `brasil-transparente-api\src\main\java\com\brasil\transparente\api\controller\FinderController.java` e alterar o CORS, removendo o comentário da anotação `@CrossOrigin` e seguir com o start do projeto conforme o readme.
-
 ### Iniciar o servidor de desenvolvimento local
 
 ```bash
