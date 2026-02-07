@@ -40,6 +40,8 @@ body {
     radial-gradient(900px 420px at 10% 10%, rgba(255, 223, 0, 0.10) 0%, rgba(255, 223, 0, 0) 55%),
     var(--background);
   line-height: 1.5;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 // Shadow para os cards que são expandíveis. Está aqui pois é de uso geral.
@@ -65,6 +67,8 @@ main {
   padding: 1rem;
   max-width: 1350px;
   margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .text-heavy p {
@@ -169,6 +173,11 @@ h1 {
 
   .content-container {
     margin: 1.75em 0.5em;
+    padding: 1rem;
+  }
+
+  main {
+    padding: 0.5rem;
   }
 }
 
