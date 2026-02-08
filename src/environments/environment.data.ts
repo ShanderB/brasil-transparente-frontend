@@ -46,14 +46,7 @@ export const environmentData = {
       descricao: '',
       fontes: [
         { nome: 'Tribunal de Contas da União (TCU)', url: 'https://contas.tcu.gov.br/ords/f?p=1136:1:108340862899860::NO:::', preposicao: OrigemPreposicao.Do },
-        { nome: 'Defensoria Pública da União (DPU)', url: 'https://www.dpu.def.br/transparencia/orcamento-e-financas', preposicao: OrigemPreposicao.Da }
-      ]
-    },
-    {
-      id: 'ministerioPublico',
-      titulo: 'Ministério Público da União',
-      descricao: '',
-      fontes: [
+        { nome: 'Defensoria Pública da União (DPU)', url: 'https://www.dpu.def.br/transparencia/orcamento-e-financas', preposicao: OrigemPreposicao.Da },
         { nome: 'Ministério Público Federal (MPF)', url: 'http://www.transparencia.mpf.mp.br/conteudo/execucao-orcamentaria-e-financeira/detalhamento-de-despesas', preposicao: OrigemPreposicao.Do },
         { nome: 'Ministério Público do Trabalho (MPT)', url: 'https://mpt.mp.br/MPTransparencia/pages/portal/consulta.xhtml', preposicao: OrigemPreposicao.Do },
         { nome: 'Ministério Público Militar (MPM)', url: 'https://transparencia.mpm.mp.br/execucao-orcamentaria-e-financeira/?ano=2024', preposicao: OrigemPreposicao.Do },
