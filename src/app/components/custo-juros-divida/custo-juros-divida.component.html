@@ -1,0 +1,136 @@
+<div class="content-container">
+  <app-voltar-analises />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Custo com Juros da Dívida Pública Federal: Análise Completa 2025",
+    "description": "Análise do custo com juros da dívida pública federal em 2025 e seu impacto no orçamento da União.",
+    "author": {
+      "@type": "Organization",
+      "name": "Brasil Transparente",
+      "url": "https://brasiltransparente.digital"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Brasil Transparente",
+      "url": "https://brasiltransparente.digital"
+    },
+    "datePublished": "2025-01-01",
+    "dateModified": "2025-02-10",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://brasiltransparente.digital/analises/custo-juros-divida"
+    },
+    "articleSection": "Finanças Públicas",
+    "keywords": ["juros da dívida 2025", "dívida pública federal", "custo da dívida", "orçamento federal 2025", "serviço da dívida", "juros e encargos"],
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Dívida Pública Federal"
+      },
+      {
+        "@type": "Thing",
+        "name": "Orçamento Federal 2025"
+      }
+    ]
+  }
+  </script>
+
+  <main class="text-heavy custo-juros-divida">
+    <h1>Custo com Juros da Dívida Pública Federal: Análise Completa 2025</h1>
+
+    <div class="resumo-estatistico">
+      <h2>Resumo Estatístico Rápido</h2>
+      <div class="faq-snippet">
+        <div class="faq-item">
+          <strong>O que são juros da dívida pública?</strong>
+          <p>São as despesas pagas pelo governo para remunerar os títulos e obrigações da dívida, refletindo taxas de juros, prazos e o estoque da dívida.</p>
+        </div>
+        <div class="faq-item">
+          <strong>Por que isso importa no orçamento?</strong>
+          <p>O serviço da dívida compete com outras prioridades orçamentárias. Quando os juros sobem, aumenta a pressão sobre o espaço fiscal.</p>
+        </div>
+        <div class="faq-item">
+          <strong>Juros é a mesma coisa que amortização?</strong>
+          <p>Não. Juros remuneram o credor. Amortização é a devolução do principal. Ambos compõem o serviço da dívida, mas têm naturezas diferentes.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>Introdução: por que analisar o custo dos juros</h2>
+    <p>
+      O <strong>custo com juros da dívida pública federal</strong> é uma das despesas mais sensíveis a mudanças na taxa de juros e nas condições macroeconômicas. Em períodos de juros elevados, o impacto no orçamento da União pode aumentar rapidamente, afetando a capacidade do governo de financiar políticas públicas e investimentos.
+    </p>
+
+    <h2>O que está incluído em “juros e encargos”</h2>
+    <p>
+      A despesa com juros e encargos está associada às obrigações financeiras do governo e pode envolver componentes vinculados à <strong>dívida interna</strong> e <strong>dívida externa</strong>, além de ajustes por indexadores e estrutura de vencimentos.
+    </p>
+
+    <div class="data-highlight">
+      <ul>
+        <li><strong>Dívida interna</strong>: predominantemente títulos emitidos no mercado doméstico</li>
+        <li><strong>Dívida externa</strong>: obrigações em moeda estrangeira e junto a credores externos</li>
+        <li><strong>Encargos</strong>: custos associados à gestão e estrutura dos instrumentos de dívida</li>
+      </ul>
+    </div>
+
+    <h2>Impacto fiscal e trade-offs</h2>
+    <p>
+      O crescimento do gasto com juros pode reduzir o espaço para despesas discricionárias e aumentar a necessidade de arrecadação, ajuste fiscal ou rolagem de dívida. Por isso, monitorar os juros ajuda a avaliar a <strong>sustentabilidade fiscal</strong> e a sensibilidade do orçamento a mudanças na política monetária.
+    </p>
+
+    <div class="author-bio">
+      <p><strong>Sobre esta análise:</strong> Artigo escrito por <strong>Brasil Transparente</strong>, especialista em transparência orçamentária, com base em dados orçamentários oficiais. Nossa missão é democratizar o acesso às informações sobre as finanças públicas brasileiras.</p>
+    </div>
+
+    <div class="explore-data">
+      <h3>Explore Mais Dados Orçamentários</h3>
+      <p>
+        Para uma análise mais completa das finanças públicas federais, você pode explorar outras seções do Brasil Transparente:
+      </p>
+      <div class="explore-links">
+        <a href="/resumo-gastos" class="explore-link">
+          <span class="explore-icon">📊</span>
+          <div class="explore-content">
+            <strong>Resumo dos Gastos</strong>
+            <span>Veja as principais despesas federais e suas participações</span>
+          </div>
+        </a>
+        <a href="/gastos-detalhados" class="explore-link">
+          <span class="explore-icon">🔍</span>
+          <div class="explore-content">
+            <strong>Gastos Detalhados</strong>
+            <span>Explore todos os gastos da União em detalhe</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <h2>Matriz de Dados Consolidados</h2>
+    <div class="table-container">
+      <table class="data-table" summary="Tabela de custo com juros e encargos da dívida pública federal - mostra valores em reais, percentual do gasto da União e percentual do PIB para cada componente">
+        <caption>Custo com Juros da Dívida Pública Federal - Componentes</caption>
+        <thead>
+          <tr>
+            <th>Componente</th>
+            <th>Valor (R$)</th>
+            <th>% Gasto da União</th>
+            <th>% PIB</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of dados">
+            <td><strong>{{ item.componente }}</strong></td>
+            <td class="value">{{ formatCurrency(item.valor) }}</td>
+            <td class="percentage">{{ item.percentual }}%</td>
+            <td class="percentage">{{ item.percentualPib }}%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+</div>

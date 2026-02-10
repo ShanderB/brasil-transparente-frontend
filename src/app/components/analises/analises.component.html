@@ -1,0 +1,29 @@
+<div class="content-container">
+  <app-voltar-inicio />
+
+  <main class="text-heavy analises">
+    <h1>Análises Orçamentárias</h1>
+    
+    <p class="intro">
+      Explore nossas análises detalhadas sobre os gastos públicos federais. Cada estudo oferece uma visão aprofundada de diferentes aspectos do orçamento da União, com dados precisos e análises técnicas.
+    </p>
+
+    <div class="analyses-grid">
+      <a 
+        *ngFor="let analysis of analyses" 
+        class="analysis-card"
+        [routerLink]="analysis.route"
+      >
+        <div class="analysis-content">
+          <h3>{{ analysis.title }}</h3>
+          <p>{{ analysis.description }}</p>
+          <div class="analysis-link">
+            <span>Ver análise completa</span>
+            <span class="arrow">→</span>
+          </div>
+        </div>
+      </a>
+    </div>
+
+  </main>
+</div>
