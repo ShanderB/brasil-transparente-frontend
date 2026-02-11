@@ -71,7 +71,7 @@ export class GastosEducacaoComponent implements OnInit {
     
     this.metaService.updateTag({ 
       property: 'og:url', 
-      content: 'https://brasiltransparente.com.br/gastos-uniao-educacao-2025' 
+      content: 'https://brasiltransparente.digital/gastos-educacao' 
     });
     
     this.metaService.updateTag({ 
@@ -179,7 +179,7 @@ export class GastosEducacaoComponent implements OnInit {
     // Canonical URL
     this.metaService.updateTag({ 
       property: 'canonical', 
-      content: 'https://brasiltransparente.com.br/gastos-uniao-educacao-2025' 
+      content: 'https://brasiltransparente.digital/gastos-educacao' 
     });
   }
 
