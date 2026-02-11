@@ -1,7 +1,6 @@
-import { Component, inject, signal, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { StorageService } from '../../services/storage/storage.service';
-import { ReportType } from '../../models/tipos-relatorios.model';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -18,9 +17,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   federalEntityName = signal('União Federal');
   federalEntityImage = signal('');
-  activeReport = this.storageService.activeReport;
-
-  reportType = ReportType;
 
   private destroy$ = new Subject<void>();
 
@@ -40,9 +36,5 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
-  }
-
-  setActiveReport(report: ReportType): void {
-    this.activeReport.set(report);
   }
 }

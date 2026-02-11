@@ -1,25 +1,25 @@
-<header [class.home-hero]="router.url === '/'">
+<header [class.home-hero]="router.url === '/' || router.url === '/gastos-detalhados'">
   <div class="header-content">
     <a routerLink="/">
       <img src="/images/logo.webp" alt="BT Logo" class="header-image" />
     </a>
 
-    @if(router.url === '/'){
+    @if(router.url === '/' || router.url === '/gastos-detalhados'){
     <nav class="report-nav">
-      <button
+      <a
+        routerLink="/"
         class="report-button report-button-text-center"
-        [class.active]="activeReport() === reportType.Simplificado"
-        (click)="setActiveReport(reportType.Simplificado)"
+        [class.active]="router.url === '/'"
       >
         Resumo dos Gastos
-      </button>
-      <button
+      </a>
+      <a
+        routerLink="/gastos-detalhados"
         class="report-button report-button-text-center"
-        [class.active]="activeReport() === reportType.Completo"
-        (click)="setActiveReport(reportType.Completo)"
+        [class.active]="router.url === '/gastos-detalhados'"
       >
         Gastos Detalhados
-      </button>
+      </a>
     </nav>
     }
   </div>

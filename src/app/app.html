@@ -1,9 +1,13 @@
-<div class="page">
-  <app-header></app-header>
-  <main class="content">
-    <router-outlet></router-outlet>
-  </main>
-  <footer>
-    <app-footer></app-footer>
-  </footer>
-</div>
+@if (isLoading()) {
+  <app-page-skeleton />
+} @else {
+  <div class="page">
+    <app-header></app-header>
+    <main class="content">
+      <router-outlet></router-outlet>
+    </main>
+    <footer>
+      <app-footer></app-footer>
+    </footer>
+  </div>
+}

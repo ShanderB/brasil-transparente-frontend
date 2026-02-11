@@ -1,0 +1,118 @@
+.page-skeleton {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.skeleton-header {
+  height: 80px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border-subtle);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.skeleton-nav {
+  height: 40px;
+  margin: 20px auto;
+  max-width: 1350px;
+  width: 100%;
+  padding: 0 1rem;
+  background: linear-gradient(90deg, #e8edf5 25%, #f7f9fc 50%, #e8edf5 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.2s infinite linear;
+  border-radius: 0.5rem;
+}
+
+.skeleton-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  max-width: 1350px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.skeleton-title {
+  height: 2rem;
+  width: 300px;
+  background: linear-gradient(90deg, #e8edf5 25%, #f7f9fc 50%, #e8edf5 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.2s infinite linear;
+  border-radius: 0.5rem;
+}
+
+.skeleton-text-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.skeleton-line {
+  height: 1.2rem;
+  background: linear-gradient(90deg, #e8edf5 25%, #f7f9fc 50%, #e8edf5 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.2s infinite linear;
+  border-radius: 0.25rem;
+  
+  &.short {
+    width: 60%;
+  }
+}
+
+.skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.skeleton-card {
+  height: 200px;
+  background: linear-gradient(90deg, #e8edf5 25%, #f7f9fc 50%, #e8edf5 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.2s infinite linear;
+  border-radius: 0.75rem;
+}
+
+.skeleton-footer {
+  height: 120px;
+  background: var(--surface);
+  border-top: 1px solid var(--border-subtle);
+  margin-top: auto;
+}
+
+.skeleton-footer-content {
+  height: 60px;
+  margin: 30px auto;
+  max-width: 1350px;
+  width: 100%;
+  padding: 0 1rem;
+  background: linear-gradient(90deg, #e8edf5 25%, #f7f9fc 50%, #e8edf5 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.2s infinite linear;
+  border-radius: 0.5rem;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .skeleton-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .skeleton-content {
+    padding: 1rem 0.5rem;
+  }
+}

@@ -8,6 +8,48 @@
   </url>
 
   <url>
+    <loc>https://brasiltransparente.digital/analises</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://brasiltransparente.digital/aposentadorias-pensoes</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://brasiltransparente.digital/custo-juros-divida</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://brasiltransparente.digital/gastos-bolsa-familia</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://brasiltransparente.digital/gastos-defesa-aposentadoria</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://brasiltransparente.digital/gastos-educacao</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://brasiltransparente.digital/gastos-seguranca</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
     <loc>https://brasiltransparente.digital/sobre</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
