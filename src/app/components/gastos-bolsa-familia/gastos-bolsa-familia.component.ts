@@ -71,7 +71,7 @@ export class GastosBolsaFamiliaComponent implements OnInit {
     
     this.metaService.updateTag({ 
       property: 'og:url', 
-      content: 'https://brasiltransparente.com.br/gasto-bolsa-familia-2025' 
+      content: 'https://brasiltransparente.digital/gastos-bolsa-familia' 
     });
     
     this.metaService.updateTag({ 
@@ -179,7 +179,7 @@ export class GastosBolsaFamiliaComponent implements OnInit {
     // Canonical URL
     this.metaService.updateTag({ 
       property: 'canonical', 
-      content: 'https://brasiltransparente.com.br/gasto-bolsa-familia-2025' 
+      content: 'https://brasiltransparente.digital/gastos-bolsa-familia' 
     });
   }
 

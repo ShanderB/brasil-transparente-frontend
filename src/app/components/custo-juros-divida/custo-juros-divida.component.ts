@@ -68,7 +68,7 @@ export class CustoJurosDividaComponent implements OnInit {
     
     this.metaService.updateTag({ 
       property: 'og:url', 
-      content: 'https://brasiltransparente.com.br/custo-juros-divida-2025' 
+      content: 'https://brasiltransparente.digital/custo-juros-divida' 
     });
     
     this.metaService.updateTag({ 
@@ -176,7 +176,7 @@ export class CustoJurosDividaComponent implements OnInit {
     // Canonical URL
     this.metaService.updateTag({ 
       property: 'canonical', 
-      content: 'https://brasiltransparente.com.br/custo-juros-divida-2025' 
+      content: 'https://brasiltransparente.digital/custo-juros-divida' 
     });
   }
 
