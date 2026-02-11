@@ -71,7 +71,7 @@ export class GastosDefesaAposentadoriaComponent implements OnInit {
     
     this.metaService.updateTag({ 
       property: 'og:url', 
-      content: 'https://brasiltransparente.com.br/gastos-defesa-aposentadoria-2025' 
+      content: 'https://brasiltransparente.digital/gastos-defesa-aposentadoria' 
     });
     
     this.metaService.updateTag({ 
@@ -179,7 +179,7 @@ export class GastosDefesaAposentadoriaComponent implements OnInit {
     // Canonical URL
     this.metaService.updateTag({ 
       property: 'canonical', 
-      content: 'https://brasiltransparente.com.br/gastos-defesa-aposentadoria-2025' 
+      content: 'https://brasiltransparente.digital/gastos-defesa-aposentadoria' 
     });
   }
 

@@ -71,7 +71,7 @@ export class AposentadoriasPensoesComponent implements OnInit {
     
     this.metaService.updateTag({ 
       property: 'og:url', 
-      content: 'https://brasiltransparente.com.br/gastos-uniao-aposentadorias-2025' 
+      content: 'https://brasiltransparente.digital/aposentadorias-pensoes' 
     });
     
     this.metaService.updateTag({ 
@@ -179,7 +179,7 @@ export class AposentadoriasPensoesComponent implements OnInit {
     // Canonical URL
     this.metaService.updateTag({ 
       property: 'canonical', 
-      content: 'https://brasiltransparente.com.br/gastos-uniao-aposentadorias-2025' 
+      content: 'https://brasiltransparente.digital/aposentadorias-pensoes' 
     });
   }
 

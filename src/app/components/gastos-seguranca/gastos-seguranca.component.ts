@@ -71,7 +71,7 @@ export class GastosSegurancaComponent implements OnInit {
     
     this.metaService.updateTag({ 
       property: 'og:url', 
-      content: 'https://brasiltransparente.com.br/gastos-seguranca-2025' 
+      content: 'https://brasiltransparente.digital/gastos-seguranca' 
     });
     
     this.metaService.updateTag({ 
@@ -179,7 +179,7 @@ export class GastosSegurancaComponent implements OnInit {
     // Canonical URL
     this.metaService.updateTag({ 
       property: 'canonical', 
-      content: 'https://brasiltransparente.com.br/gastos-seguranca-2025' 
+      content: 'https://brasiltransparente.digital/gastos-seguranca' 
     });
   }
 
