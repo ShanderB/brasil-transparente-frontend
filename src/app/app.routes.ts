@@ -12,6 +12,7 @@ import { GastosDefesaAposentadoriaComponent } from './components/gastos-defesa-a
 import { GastosBolsaFamiliaComponent } from './components/gastos-bolsa-familia/gastos-bolsa-familia.component';
 import { GastosSegurancaComponent } from './components/gastos-seguranca/gastos-seguranca.component';
 import { GastosEducacaoComponent } from './components/gastos-educacao/gastos-educacao.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -32,7 +33,7 @@ export const routes: Routes = [
   { path: 'analises/gastos-seguranca', component: GastosSegurancaComponent },
   { path: 'gastos-educacao', component: GastosEducacaoComponent },
   { path: 'analises/gastos-educacao', component: GastosEducacaoComponent },
-  { path: '**', redirectTo: '' }
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
