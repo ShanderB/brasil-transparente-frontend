@@ -41,26 +41,27 @@ export class GastosEducacaoComponent implements OnInit {
 
   setupSEO(): void {
     // Configuração de SEO para a página
-    this.titleService.setTitle('Investimentos Federais em Educação: Análise Completa 2025 | Brasil Transparente');
+    this.titleService.setTitle('Gastos da União com Educação: Análise Completa 2025 | Brasil Transparente');
     
     this.metaService.updateTag({ 
       name: 'description', 
-      content: 'Veja a análise detalhada dos investimentos do Brasil em educação em 2025. Entenda os R$ 125,8 bilhões destinados ao ensino básico, superior e profissional.' 
+      content: 'Veja a análise detalhada dos gastos do Brasil com educação em 2025. Entenda os R$ 234,73 bilhões distribuídos em 6 blocos institucionais: FNDE, Universidades, Institutos Federais e mais.' 
     });
     
     this.metaService.updateTag({ 
       name: 'keywords', 
-      content: 'investimentos educação 2025, orçamento educação federal, gastos MEC 2025, programas educacionais Brasil, universidades federais, ensino básico federal, FNDE' 
+      content: 'gastos educação 2025, orçamento educação federal, despesas MEC 2025, FNDE, universidades federais, institutos federais, CAPES, hospitais universitários, blocos institucionais educação' 
     });
     
+    // Open Graph - Social Media
     this.metaService.updateTag({ 
       property: 'og:title', 
-      content: 'Investimentos Federais em Educação: Análise Completa 2025' 
+      content: 'Gastos da União com Educação: Análise Completa 2025' 
     });
     
     this.metaService.updateTag({ 
       property: 'og:description', 
-      content: 'Análise detalhada dos R$ 125,8 bilhões investidos em educação federal em 2025. Programas educacionais e impacto no desenvolvimento do país.' 
+      content: 'Análise detalhada dos R$ 234,73 bilhões gastos com educação federal em 2025. Distribuição por 6 blocos institucionais: FNDE, Universidades, Institutos e mais.' 
     });
     
     this.metaService.updateTag({ 
@@ -69,13 +70,116 @@ export class GastosEducacaoComponent implements OnInit {
     });
     
     this.metaService.updateTag({ 
-      name: 'robots', 
-      content: 'index, follow' 
+      property: 'og:url', 
+      content: 'https://brasiltransparente.com.br/gastos-uniao-educacao-2025' 
     });
     
     this.metaService.updateTag({ 
+      property: 'og:site_name', 
+      content: 'Brasil Transparente' 
+    });
+    
+    this.metaService.updateTag({ 
+      property: 'og:locale', 
+      content: 'pt_BR' 
+    });
+    
+    // Twitter Card
+    this.metaService.updateTag({ 
+      name: 'twitter:card', 
+      content: 'summary_large_image' 
+    });
+    
+    this.metaService.updateTag({ 
+      name: 'twitter:title', 
+      content: 'Gastos da União com Educação: Análise Completa 2025' 
+    });
+    
+    this.metaService.updateTag({ 
+      name: 'twitter:description', 
+      content: 'Análise detalhada dos R$ 234,73 bilhões gastos com educação federal em 2025.' 
+    });
+    
+    // Robots e Indexação
+    this.metaService.updateTag({ 
+      name: 'robots', 
+      content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' 
+    });
+    
+    // Autor e Publicação
+    this.metaService.updateTag({ 
       name: 'author', 
       content: 'Brasil Transparente' 
+    });
+    
+    this.metaService.updateTag({ 
+      name: 'publisher', 
+      content: 'Brasil Transparente' 
+    });
+    
+    this.metaService.updateTag({ 
+      name: 'article:published_time', 
+      content: '2026-02-11T10:00:00-03:00' 
+    });
+    
+    this.metaService.updateTag({ 
+      property: 'article:published_time', 
+      content: '2026-02-11T10:00:00-03:00' 
+    });
+    
+    // Informações Adicionais
+    this.metaService.updateTag({ 
+      name: 'language', 
+      content: 'pt-BR' 
+    });
+    
+    this.metaService.updateTag({ 
+      name: 'geo.country', 
+      content: 'BR' 
+    });
+    
+    this.metaService.updateTag({ 
+      name: 'coverage', 
+      content: 'Worldwide' 
+    });
+    
+    this.metaService.updateTag({ 
+      name: 'distribution', 
+      content: 'Global' 
+    });
+    
+    this.metaService.updateTag({ 
+      name: 'rating', 
+      content: 'General' 
+    });
+    
+    // Tema e Categoria
+    this.metaService.updateTag({ 
+      name: 'topic', 
+      content: 'Gastos com Educação, Orçamento MEC 2025, FNDE, Universidades Federais, Institutos Federais, CAPES, Hospitais Universitários' 
+    });
+    
+    this.metaService.updateTag({ 
+      name: 'category', 
+      content: 'Educação, Ensino, Desenvolvimento Educacional, Políticas Educacionais, Finanças Públicas' 
+    });
+    
+    // Data de Publicação (atual)
+    const currentDate = new Date().toISOString().split('T')[0];
+    this.metaService.updateTag({ 
+      name: 'article:published_time', 
+      content: currentDate 
+    });
+    
+    this.metaService.updateTag({ 
+      name: 'article:modified_time', 
+      content: currentDate 
+    });
+    
+    // Canonical URL
+    this.metaService.updateTag({ 
+      property: 'canonical', 
+      content: 'https://brasiltransparente.com.br/gastos-uniao-educacao-2025' 
     });
   }
 
@@ -84,29 +188,39 @@ export class GastosEducacaoComponent implements OnInit {
     // Simular dados para demonstração
     this.dados = [
       {
-        componente: 'Ensino Básico',
-        valor: 6820000000000,
-        percentual: 2.33
+        componente: 'FNDE',
+        valor: 82780000000000,
+        percentual: 0.71
       },
       {
-        componente: 'Ensino Superior',
-        valor: 4560000000000,
-        percentual: 1.56
+        componente: 'Universidades Federais',
+        valor: 94000000000000,
+        percentual: 0.80
       },
       {
-        componente: 'Educação Profissional',
-        valor: 870000000000,
-        percentual: 0.30
+        componente: 'Institutos Federais + CEFET + UTFPR',
+        valor: 32000000000000,
+        percentual: 0.27
       },
       {
-        componente: 'Programas de Assistência',
-        valor: 330000000000,
-        percentual: 0.11
+        componente: 'Hospitais Universitários',
+        valor: 16440000000000,
+        percentual: 0.14
+      },
+      {
+        componente: 'CAPES',
+        valor: 6210000000000,
+        percentual: 0.05
+      },
+      {
+        componente: 'Outros Órgãos do MEC',
+        valor: 3300000000000,
+        percentual: 0.03
       },
       {
         componente: 'Despesa Total com Educação',
-        valor: 12580000000000,
-        percentual: 4.29
+        valor: 234730000000000,
+        percentual: 2.01
       }
     ];
     this.isLoading.set(false);

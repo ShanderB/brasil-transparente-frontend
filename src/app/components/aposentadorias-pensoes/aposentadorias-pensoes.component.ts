@@ -50,9 +50,10 @@ export class AposentadoriasPensoesComponent implements OnInit {
     
     this.metaService.updateTag({ 
       name: 'keywords', 
-      content: 'gastos aposentadorias 2025, déficit previdência, orçamento federal 2025, impacto aposentadorias PIB, RGPS INSS, BPC, gastos militares, servidores públicos' 
+      content: 'gastos aposentadorias 2025, déficit previdência, orçamento federal 2025, impacto aposentadorias PIB, RGPS INSS, BPC, gastos militares, servidores públicos, previdência social, finanças públicas' 
     });
     
+    // Open Graph - Social Media
     this.metaService.updateTag({ 
       property: 'og:title', 
       content: 'Gastos da União com Aposentadorias e Pensões: Análise Completa 2025' 
@@ -69,13 +70,116 @@ export class AposentadoriasPensoesComponent implements OnInit {
     });
     
     this.metaService.updateTag({ 
-      name: 'robots', 
-      content: 'index, follow' 
+      property: 'og:url', 
+      content: 'https://brasiltransparente.com.br/gastos-uniao-aposentadorias-2025' 
     });
     
     this.metaService.updateTag({ 
+      property: 'og:site_name', 
+      content: 'Brasil Transparente' 
+    });
+    
+    this.metaService.updateTag({ 
+      property: 'og:locale', 
+      content: 'pt_BR' 
+    });
+    
+    // Twitter Card
+    this.metaService.updateTag({ 
+      name: 'twitter:card', 
+      content: 'summary_large_image' 
+    });
+    
+    this.metaService.updateTag({ 
+      name: 'twitter:title', 
+      content: 'Gastos da União com Aposentadorias e Pensões: Análise Completa 2025' 
+    });
+    
+    this.metaService.updateTag({ 
+      name: 'twitter:description', 
+      content: 'Análise detalhada dos R$ 1,28 trilhão gastos com aposentadorias e pensões em 2025.' 
+    });
+    
+    // Robots e Indexação
+    this.metaService.updateTag({ 
+      name: 'robots', 
+      content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' 
+    });
+    
+    // Autor e Publicação
+    this.metaService.updateTag({ 
       name: 'author', 
       content: 'Brasil Transparente' 
+    });
+    
+    this.metaService.updateTag({ 
+      name: 'publisher', 
+      content: 'Brasil Transparente' 
+    });
+    
+    this.metaService.updateTag({ 
+      name: 'article:published_time', 
+      content: '2026-02-10T10:00:00-03:00' 
+    });
+    
+    this.metaService.updateTag({ 
+      property: 'article:published_time', 
+      content: '2026-02-10T10:00:00-03:00' 
+    });
+    
+    // Informações Adicionais
+    this.metaService.updateTag({ 
+      name: 'language', 
+      content: 'pt-BR' 
+    });
+    
+    this.metaService.updateTag({ 
+      name: 'geo.country', 
+      content: 'BR' 
+    });
+    
+    this.metaService.updateTag({ 
+      name: 'coverage', 
+      content: 'Worldwide' 
+    });
+    
+    this.metaService.updateTag({ 
+      name: 'distribution', 
+      content: 'Global' 
+    });
+    
+    this.metaService.updateTag({ 
+      name: 'rating', 
+      content: 'General' 
+    });
+    
+    // Tema e Categoria
+    this.metaService.updateTag({ 
+      name: 'topic', 
+      content: 'Finanças Públicas, Previdência Social, Orçamento Federal' 
+    });
+    
+    this.metaService.updateTag({ 
+      name: 'category', 
+      content: 'Economia, Governo, Previdência' 
+    });
+    
+    // Data de Publicação (atual)
+    const currentDate = new Date().toISOString().split('T')[0];
+    this.metaService.updateTag({ 
+      name: 'article:published_time', 
+      content: currentDate 
+    });
+    
+    this.metaService.updateTag({ 
+      name: 'article:modified_time', 
+      content: currentDate 
+    });
+    
+    // Canonical URL
+    this.metaService.updateTag({ 
+      property: 'canonical', 
+      content: 'https://brasiltransparente.com.br/gastos-uniao-aposentadorias-2025' 
     });
   }
 

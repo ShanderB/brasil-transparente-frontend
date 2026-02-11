@@ -20,25 +20,25 @@ export class AnalisesComponent {
     {
       id: 'aposentadorias-pensoes',
       title: 'Aposentadorias e Pensões',
-      description: 'Análise detalhada dos gastos da União com aposentadorias e pensões, incluindo RGPS, BPC, militares e servidores civis públicos.',
+      description: 'Análise dos gastos da União com aposentadorias e pensões, incluindo RGPS, BPC, militares e servidores civis públicos.',
       route: '/aposentadorias-pensoes'
     },
     {
       id: 'custo-juros-divida',
-      title: 'Custo Juros da Dívida Pública Federal',
-      description: 'Análise dos custos com juros da dívida pública federal e seu impacto no orçamento da União.',
+      title: 'Juros da Dívida Pública Federal',
+      description: 'Análise do volume dos gastos com juros da dívida pública federal e sua relação com a dívida pública federal.',
       route: '/custo-juros-divida'
     },
     {
       id: 'gastos-defesa-aposentadoria',
-      title: 'Gastos no Ministério da Defesa - Aposentadoria',
-      description: 'Análise detalhada dos gastos com aposentadorias militares no Ministério da Defesa.',
+      title: 'Aposentadorias Militares',
+      description: 'Análise do volume e proporção de gastos do Ministério da Defesa em relação a militares ativos e inativos.',
       route: '/gastos-defesa-aposentadoria'
     },
     {
       id: 'gastos-bolsa-familia',
-      title: 'Gasto com Bolsa Família',
-      description: 'Análise dos gastos com o programa Bolsa Família e seu impacto social e orçamentário.',
+      title: 'Bolsa Família',
+      description: 'Análise dos gastos com o programa Bolsa Família e seu impacto fiscal.',
       route: '/gastos-bolsa-familia'
     },
     {

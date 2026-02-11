@@ -7,10 +7,19 @@
 .text-heavy h1 {
   font-size: 1.75rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
   color: var(--azul-brasil);
   line-height: 1.35;
   letter-spacing: -0.01em;
+}
+
+.data-publicacao {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .text-heavy h2 {
@@ -18,7 +27,7 @@
   font-weight: 600;
   margin-top: 2.5rem;
   margin-bottom: 1rem;
-  border-left: 3px solid var(--amarelo-ouro);
+  border-left: 3px solid var(--azul-brasil);
   padding-left: 0.75rem;
   color: var(--azul-brasil);
 }
@@ -49,7 +58,7 @@
   margin: 0.5rem 0;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-subtle);
-  border-left: 4px solid var(--amarelo-ouro);
+  border-left: 4px solid var(--azul-brasil);
 }
 
 .data-highlight li {
@@ -104,7 +113,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: var(--amarelo-ouro);
+  background: var(--azul-brasil);
   transform: scaleX(0);
   transition: transform 0.25s ease;
 }
@@ -216,6 +225,8 @@
   font-family: ui-monospace, 'Cascadia Code', monospace;
   font-weight: 600;
   font-size: 0.85rem;
+  white-space: nowrap;
+  min-width: 120px;
 }
 
 .data-table .percentage {
@@ -227,7 +238,7 @@
 .data-table .total-row {
   background: var(--brand-gold-100);
   font-weight: 700;
-  border-top: 2px solid var(--amarelo-ouro);
+  border-top: 2px solid var(--azul-brasil);
 }
 
 .data-table .total-row .percentage {
@@ -266,7 +277,7 @@
   background: var(--surface-muted);
   padding: 1rem 1.25rem;
   border-radius: var(--radius-sm);
-  border-left: 3px solid var(--amarelo-ouro);
+  border-left: 3px solid var(--azul-brasil);
   transition: var(--transition);
 }
 

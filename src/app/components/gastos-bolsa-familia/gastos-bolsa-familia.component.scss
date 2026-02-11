@@ -5,11 +5,20 @@
 }
 
 .text-heavy h1 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
   color: var(--azul-brasil);
   line-height: 1.3;
+}
+
+.data-publicacao {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .text-heavy h2 {
@@ -214,14 +223,15 @@
   border-top: 2px solid var(--azul-brasil);
 }
 
-/* Resumo Estatístico para Featured Snippet */
+/* Resumo Estatístico */
 .resumo-estatistico {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  border: 2px solid var(--azul-brasil);
-  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-top: 3px solid var(--azul-brasil);
+  border-radius: var(--radius-md);
   padding: 1.5rem;
-  margin: 2rem 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 1.5rem 0 2rem;
+  box-shadow: var(--card-shadow);
 }
 
 .resumo-estatistico h2 {
@@ -229,9 +239,11 @@
   border: none !important;
   padding-left: 0 !important;
   color: var(--azul-brasil) !important;
-  font-size: 1.3rem !important;
+  font-size: 1.1rem !important;
   text-align: center;
   margin-bottom: 1rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 
 .faq-snippet {
@@ -240,16 +252,17 @@
 }
 
 .faq-item {
-  background: var(--surface);
-  padding: 1rem;
-  border-radius: 8px;
-  border-left: 4px solid var(--azul-brasil);
-  transition: all 0.3s ease;
+  background: var(--surface-muted);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--azul-brasil);
+  transition: var(--transition);
 }
 
 .faq-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+  box-shadow: var(--card-shadow);
+  background: var(--surface);
 }
 
 .faq-item strong {
@@ -257,6 +270,13 @@
   font-size: 1rem;
   display: block;
   margin-bottom: 0.5rem;
+}
+
+.faq-item p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-primary);
 }
 
 .faq-item p {
