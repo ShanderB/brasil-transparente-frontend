@@ -41,7 +41,7 @@ export class GastosSegurancaComponent implements OnInit {
 
   setupSEO(): void {
     // Configuração de SEO para a página
-    this.titleService.setTitle('Gastos Federais com Segurança Pública: Análise Completa 2025 | Brasil Transparente');
+    this.titleService.setTitle('Gastos Federais com Segurança Pública - Análise das Despesas 2025 | Brasil Transparente');
     
     this.metaService.updateTag({ 
       name: 'description', 
@@ -56,7 +56,7 @@ export class GastosSegurancaComponent implements OnInit {
     // Open Graph - Social Media
     this.metaService.updateTag({ 
       property: 'og:title', 
-      content: 'Gastos Federais com Segurança Pública: Análise Completa 2025' 
+      content: 'Gastos Federais com Segurança Pública - Análise das Despesas 2025' 
     });
     
     this.metaService.updateTag({ 
@@ -92,7 +92,7 @@ export class GastosSegurancaComponent implements OnInit {
     
     this.metaService.updateTag({ 
       name: 'twitter:title', 
-      content: 'Gastos Federais com Segurança Pública: Análise Completa 2025' 
+      content: 'Gastos Federais com Segurança Pública - Análise das Despesas 2025' 
     });
     
     this.metaService.updateTag({ 

@@ -38,7 +38,7 @@ export class CustoJurosDividaComponent implements OnInit {
 
   setupSEO(): void {
     // Configuração de SEO para a página
-    this.titleService.setTitle('Custo com Juros da Dívida Pública Federal: Análise Completa 2025 | Brasil Transparente');
+    this.titleService.setTitle('Custo com Juros da Dívida Pública Federal - Análise das Despesas 2025 | Brasil Transparente');
     
     this.metaService.updateTag({ 
       name: 'description', 
@@ -53,7 +53,7 @@ export class CustoJurosDividaComponent implements OnInit {
     // Open Graph - Social Media
     this.metaService.updateTag({ 
       property: 'og:title', 
-      content: 'Custo com Juros da Dívida Pública Federal: Análise Completa 2025' 
+      content: 'Custo com Juros da Dívida Pública Federal - Análise das Despesas 2025' 
     });
     
     this.metaService.updateTag({ 
@@ -89,7 +89,7 @@ export class CustoJurosDividaComponent implements OnInit {
     
     this.metaService.updateTag({ 
       name: 'twitter:title', 
-      content: 'Custo com Juros da Dívida Pública Federal: Análise Completa 2025' 
+      content: 'Custo com Juros da Dívida Pública Federal - Análise das Despesas 2025' 
     });
     
     this.metaService.updateTag({ 
