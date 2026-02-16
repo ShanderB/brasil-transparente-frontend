@@ -51,6 +51,14 @@ Após gerado a imagem, rode o container:
 docker run -p 80:80 brasil-transparente-frontend
 ```
 
+### Testar o arquivo estático gerado
+Para isso, você deve utilizar um servidor HTTP para servir os arquivos estáticos gerados no diretório `dist/browser`. Você pode usar o `http-server` ou o `serve` para isso. Aqui estão os comandos para ambos (necessário instalar usando `npm i http-server` ou `npm i serve`):
+
+```bash
+npx http-server dist/browser -p 4200
+npx serve dist/browser -p 4200
+```
+
 
 ## 🤝 Como Contribuir
 - 📌 **Participe no Discord**: A melhor forma de ajudar na contribuição do projeto é estar alinhado com o que está sendo discutido no nosso Discord:
