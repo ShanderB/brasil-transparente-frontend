@@ -1,18 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { SobreComponent } from './components/sobre/sobre.component';
-import { MetodologiaComponent } from './components/metodologia/metodologia.component';
-import { OrigemComponent } from './components/origem/origem.component';
-import { GastosDetalhadosComponent } from './components/gastos-detalhados/gastos-detalhados.component';
-import { AnalisesComponent } from './components/analises/analises.component';
-import { AposentadoriasPensoesComponent } from './components/aposentadorias-pensoes/aposentadorias-pensoes.component';
-import { CustoJurosDividaComponent } from './components/custo-juros-divida/custo-juros-divida.component';
-import { GastosDefesaAposentadoriaComponent } from './components/gastos-defesa-aposentadoria/gastos-defesa-aposentadoria.component';
-import { GastosBolsaFamiliaComponent } from './components/gastos-bolsa-familia/gastos-bolsa-familia.component';
-import { GastosSegurancaComponent } from './components/gastos-seguranca/gastos-seguranca.component';
-import { GastosEducacaoComponent } from './components/gastos-educacao/gastos-educacao.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
 
 export const routes: Routes = [
   {
@@ -138,13 +125,6 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./components/gastos-educacao/gastos-educacao.component').then(
         m => m.GastosEducacaoComponent
-      )
-  },
-  {
-    path: '**',
-    loadComponent: () =>
-      import('./components/not-found/not-found.component').then(
-        m => m.NotFoundComponent
       )
   }
 ];

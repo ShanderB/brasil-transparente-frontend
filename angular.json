@@ -18,6 +18,9 @@
           "builder": "@angular/build:application",
           "options": {
             "browser": "src/main.ts",
+            "server": "src/main.server.ts",
+            "prerender": true,
+            "ssr": false,
             "aot": true,
             "preserveSymlinks": true,
             "outputPath": "dist",
@@ -51,8 +54,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "8kB",
+                  "maximumError": "12kB"
                 }
               ],
               "optimization": true,
@@ -64,7 +67,6 @@
               "polyfills": ["zone.js", "zone.js/testing"],
               "prerender": true,
               "ssr": false,
-
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.development.ts",
@@ -79,7 +81,9 @@
               "namedChunks": true,
               "aot": true,
               "outputHashing": "none",
-              "polyfills": ["zone.js", "zone.js/testing"]
+              "polyfills": ["zone.js", "zone.js/testing"],
+              "prerender": true,
+              "ssr": false
             },
             "testing": {
               "optimization": false,
@@ -89,6 +93,8 @@
               "aot": true,
               "outputHashing": "none",
               "polyfills": ["zone.js", "zone.js/testing"],
+              "prerender": true,
+              "ssr": false,
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.development.ts",
