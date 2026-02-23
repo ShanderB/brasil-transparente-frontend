@@ -39,8 +39,14 @@ npm start
 
 Ao executar o projeto local, a feature de cache local (localStorage) estará desabilitada. Para habilitar, alterar a variável `SHOULD_CACHE` para `true` no arquivo de environment `src\environments\environment.development.ts`.
 
-### Build para produção
+### Build para produção ou testes locais
 
+Se você deseja gerar o build sem necessidade de rodar o banco de dados e o backend, é possível passar a variável de ambiente ```production``` utilizando o comando:
+```bash
+docker build --build-arg BUILD_ENV=production -t brasil-transparente-frontend .
+```
+
+Caso queira utilizar o banco e o back local:
 ```bash
 docker build -t brasil-transparente-frontend .
 ```
@@ -48,9 +54,19 @@ docker build -t brasil-transparente-frontend .
 Após gerado a imagem, rode o container:
 
 ```bash
-docker run -p 80:80 brasil-transparente-frontend
+docker run -p 80:8080 brasil-transparente-frontend
 ```
 
+Acessar ```http://localhost``` para visualizar a aplicação rodando localmente.
+
+### Testar o arquivo estático gerado
+Se não quiser testar usando o ```npm start``` nem o container docker, você deverá usar algum serviço de host de arquivos locais. 
+Para isso, você deve utilizar um servidor HTTP para servir os arquivos estáticos gerados no diretório `dist/browser`. Você pode usar o `http-server` ou o `serve`. Aqui estão os comandos para ambos (necessário instalar usando `npm i http-server` ou `npm i serve`):
+
+```bash
+npx http-server dist/browser -p 4200
+npx serve dist/browser -p 4200
+```
 
 ## 🤝 Como Contribuir
 - 📌 **Participe no Discord**: A melhor forma de ajudar na contribuição do projeto é estar alinhado com o que está sendo discutido no nosso Discord:
