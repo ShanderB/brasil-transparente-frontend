@@ -41,6 +41,12 @@ Ao executar o projeto local, a feature de cache local (localStorage) estará des
 
 ### Build para produção ou testes locais
 
+Se você deseja gerar o build sem necessidade de rodar o banco de dados e o backend, é possível passar a variável de ambiente ```production``` utilizando o comando:
+```bash
+docker build --build-arg BUILD_ENV=production -t brasil-transparente-frontend .
+```
+
+Caso queira utilizar o banco e o back local:
 ```bash
 docker build -t brasil-transparente-frontend .
 ```
