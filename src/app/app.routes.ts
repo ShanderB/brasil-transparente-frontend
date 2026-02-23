@@ -29,7 +29,9 @@ export const routes: Routes = [
   {
     path: 'origem',
     loadComponent: () =>
-      import('./components/origem/origem.component').then(m => m.OrigemComponent)
+      import('./components/origem/origem.component').then(
+        m => m.OrigemComponent
+      )
   },
   {
     path: 'analises',
@@ -128,7 +130,9 @@ export const routes: Routes = [
   {
     path: '**',
     loadComponent: () =>
-      import('./components/not-found/not-found.component').then(m => m.NotFoundComponent)
+      import('./components/not-found/not-found.component').then(
+        m => m.NotFoundComponent
+      )
   }
 ];
 
