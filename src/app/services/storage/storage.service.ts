@@ -1,4 +1,5 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal, PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
 import { ReportType } from '../../models/tipos-relatorios.model';
 import { environment } from 'environments/environment.development';
@@ -7,12 +8,12 @@ import { environment } from 'environments/environment.development';
   providedIn: 'root'
 })
 export class StorageService {
+  private isBrowser: boolean;
   private static readonly SHOULD_CACHE = environment.shouldCache;
 
   private static readonly DEFAULT_FEDERAL_ENTITY_IMAGE =
     'images/estados/uniao.svg';
 
-  // TODO alterar para signal
   private federalEntityNameSubject = new BehaviorSubject<string>(
     'União Federal'
   );
@@ -27,29 +28,36 @@ export class StorageService {
 
   activeReport = signal<ReportType>(ReportType.Simplificado);
 
-  constructor() {
-    this.loadFromLocalStorage();
+  constructor(@Inject(PLATFORM_ID) platformId: Object) {
+    this.isBrowser = isPlatformBrowser(platformId);
+
+    if (this.isBrowser) {
+      this.loadFromLocalStorage();
+    }
   }
 
   private loadFromLocalStorage(): void {
+    if (!this.isBrowser) return;
+
     const name = localStorage.getItem('federalEntityName');
     const image = localStorage.getItem('federalEntityImage');
     const id = localStorage.getItem('federalEntityId');
 
-    //TODO simplificar
     if (name) this.federalEntityNameSubject.next(name);
     if (image) this.federalEntityImageSubject.next(image);
     if (id) this.federalEntityIdSubject.next(id);
   }
 
   setFederalEntity(name: string, image: string, id: string): void {
-    localStorage.setItem('federalEntityName', name);
-    localStorage.setItem('federalEntityImage', image);
-    localStorage.setItem('federalEntityId', id);
+    if (this.isBrowser) {
+      localStorage.setItem('federalEntityName', name);
+      localStorage.setItem('federalEntityImage', image);
+      localStorage.setItem('federalEntityId', id);
 
-    this.federalEntityNameSubject.next(name);
-    this.federalEntityImageSubject.next(image);
-    this.federalEntityIdSubject.next(id);
+      this.federalEntityNameSubject.next(name);
+      this.federalEntityImageSubject.next(image);
+      this.federalEntityIdSubject.next(id);
+    }
   }
 
   private cacheKey(url: string): string {
@@ -57,7 +65,7 @@ export class StorageService {
   }
 
   getCached<T>(url: string): T | null {
-    if (!StorageService.SHOULD_CACHE) return null;
+    if (!this.isBrowser || !StorageService.SHOULD_CACHE) return null;
 
     const cached = localStorage.getItem(this.cacheKey(url));
     if (!cached) return null;
@@ -76,6 +84,8 @@ export class StorageService {
   }
 
   setCache<T>(url: string, data: T): void {
+    if (!this.isBrowser) return;
+
     localStorage.setItem(
       this.cacheKey(url),
       JSON.stringify({ data, timestamp: Date.now() })
